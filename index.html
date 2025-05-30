@@ -9,6 +9,7 @@
     .question { margin-bottom: 1rem; }
     .button { padding: 0.5rem 1rem; cursor: pointer; }
     .report { margin-top: 2rem; background: #f7f7f7; padding: 1rem; border-radius: 4px; }
+    .error { color: red; }
     .loading { opacity: 0.6; }
   </style>
 </head>
@@ -51,9 +52,10 @@
       };
       console.log('Submitting audit with', answers);
 
-      // UI state
+      // UI state reset
       reportDiv.style.display = 'none';
       reportContent.textContent = 'Loading...';
+      reportContent.classList.remove('error');
       submitBtn.disabled = true;
       submitBtn.classList.add('loading');
 
@@ -64,22 +66,29 @@
           body: JSON.stringify({ answers })
         });
         console.log('Response status:', resp.status);
-        if (!resp.ok) throw new Error(`HTTP error ${resp.status}`);
         const json = await resp.json();
         console.log('Fetched JSON:', json);
 
-        // extract or debug
-        const content = json.choices?.[0]?.message?.content;
-        if (content) {
-          reportContent.textContent = content;
+        // handle API errors
+        if (json.error) {
+          const msg = json.error.message || JSON.stringify(json.error);
+          reportContent.textContent = `API error: ${msg}`;
+          reportContent.classList.add('error');
+        }
+        // handle successful response
+        else if (json.choices?.[0]?.message?.content) {
+          reportContent.textContent = json.choices[0].message.content;
         } else {
           reportContent.textContent = 'Unexpected response format, see console.';
+          reportContent.classList.add('error');
           console.error('Response JSON format:', json);
         }
+
         reportDiv.style.display = 'block';
       } catch (err) {
         console.error('Fetch error:', err);
         reportContent.textContent = 'Error: ' + err.message;
+        reportContent.classList.add('error');
         reportDiv.style.display = 'block';
       } finally {
         submitBtn.disabled = false;
