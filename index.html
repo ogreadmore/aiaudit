@@ -3,201 +3,202 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SMB AI Audit</title>
+  <title>SMB AI Audit Quiz</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
-  <div class="max-w-3xl mx-auto p-6">
-    <h1 class="text-4xl font-bold mb-8 text-center">SMB AI Audit Quiz</h1>
-    <form id="quizForm" class="space-y-8 bg-white p-8 rounded-lg shadow-lg">
-      <!-- Business Type & Industry -->
-      <div>
-        <label for="businessType" class="block text-lg font-medium text-gray-800 mb-2">1. Business Type &amp; Industry</label>
-        <input type="text" id="businessType" name="businessType" placeholder="e.g. Retail bakery, Health clinic, Software agency"
-               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required />
+<body class="bg-gray-100 text-gray-900">
+  <div class="min-h-screen flex flex-col items-center justify-start py-8 px-4">
+    <!-- 1) Heading -->
+    <h1 class="text-5xl font-extrabold mb-6 text-center">SMB AI Audit Quiz</h1>
+    <p class="text-lg text-gray-700 mb-10 text-center max-w-2xl">
+      Answer a few simple questions and get your free AI audit instantly. If you’d like more depth, scroll down after you see your free results.
+    </p>
+
+    <!-- 2) Quiz Form -->
+    <div class="w-full max-w-3xl bg-white p-8 rounded-lg shadow-md mb-8">
+      <form id="auditForm" class="space-y-6">
+        <!-- Question 1 -->
+        <div>
+          <label class="block text-xl font-medium mb-2" for="q1">
+            1. What tools do you currently use in your business?
+          </label>
+          <input
+            id="q1"
+            name="q1"
+            type="text"
+            required
+            placeholder="e.g. Google Calendar, QuickBooks"
+            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+        <!-- Question 2 -->
+        <div>
+          <label class="block text-xl font-medium mb-2" for="q2">
+            2. What is your biggest pain point or bottleneck?
+          </label>
+          <input
+            id="q2"
+            name="q2"
+            type="text"
+            required
+            placeholder="e.g. Manual invoicing, scheduling"
+            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+        <!-- Question 3 -->
+        <div>
+          <label class="block text-xl font-medium mb-2" for="q3">
+            3. What’s your primary business goal for the next 12 months?
+          </label>
+          <input
+            id="q3"
+            name="q3"
+            type="text"
+            required
+            placeholder="e.g. Increase sales by 20%"
+            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+        <!-- Email (for mailing list + paid flow) -->
+        <div>
+          <label class="block text-xl font-medium mb-2" for="email">
+            4. Email address (so we can send you a copy and keep you updated)
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="you@example.com"
+            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button
+            type="submit"
+            class="w-full max-w-xs bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-md transition"
+          >
+            Get Your Free AI Audit
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- 3) Free Audit Results (Initially Hidden) -->
+    <div id="freeAuditContainer" class="hidden w-full max-w-3xl bg-white p-8 rounded-lg shadow-md">
+      <h2 class="text-3xl font-bold mb-4">Your Free AI Audit</h2>
+      <div id="freeAuditContent" class="text-base leading-relaxed text-gray-800 space-y-4">
+        <!-- Injected via JavaScript -->
       </div>
-      <!-- Company Size & Scale -->
-      <div>
-        <label for="scale" class="block text-lg font-medium text-gray-800 mb-2">2. Company Size &amp; Scale</label>
-        <input type="text" id="scale" name="scale" placeholder="e.g. 10 employees / $1M annual revenue"
-               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required />
-      </div>
-      <!-- Current Tools & Systems -->
-      <div>
-        <label for="q1" class="block text-lg font-medium text-gray-800 mb-2">3. Current Tools &amp; Systems</label>
-        <textarea id="q1" name="q1" placeholder="List any software (CRM, ERP, spreadsheets) or manual processes you rely on today."
-                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required></textarea>
-      </div>
-      <!-- Data & Reporting -->
-      <div>
-        <label for="q2" class="block text-lg font-medium text-gray-800 mb-2">4. Data &amp; Reporting</label>
-        <textarea id="q2" name="q2" placeholder="How do you collect, store, and analyze data (sales, customers, inventory)? Are regular reports easy to generate?"
-                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required></textarea>
-      </div>
-      <!-- Customer Acquisition & Marketing -->
-      <div>
-        <label for="q3" class="block text-lg font-medium text-gray-800 mb-2">5. Customer Acquisition &amp; Marketing</label>
-        <textarea id="q3" name="q3" placeholder="Which channels (cold calling, social media, email campaigns, referrals) do you use to find customers? What works best/worst?"
-                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required></textarea>
-      </div>
-      <!-- Customer Support & Retention -->
-      <div>
-        <label for="q4" class="block text-lg font-medium text-gray-800 mb-2">6. Customer Support &amp; Retention</label>
-        <textarea id="q4" name="q4" placeholder="How do you handle inquiries, support tickets, or follow-up? Are there recurring delays or quality issues?"
-                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required></textarea>
-      </div>
-      <!-- Operational Bottlenecks -->
-      <div>
-        <label for="q5" class="block text-lg font-medium text-gray-800 mb-2">7. Operational Bottlenecks</label>
-        <textarea id="q5" name="q5" placeholder="Where do you lose the most time or see repeated errors (e.g., inventory, scheduling, invoicing)?"
-                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required></textarea>
-      </div>
-      <!-- Team & Skillset -->
-      <div>
-        <label for="q6" class="block text-lg font-medium text-gray-800 mb-2">8. Team &amp; Skillset</label>
-        <textarea id="q6" name="q6" placeholder="Which roles/functions are most stretched or understaffed? Where do you struggle to find or train the right skills?"
-                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required></textarea>
-      </div>
-      <!-- Primary Business Goals -->
-      <div>
-        <label for="q7" class="block text-lg font-medium text-gray-800 mb-2">9. Primary Business Goals</label>
-        <textarea id="q7" name="q7" placeholder="What is your top priority this year—revenue growth, cost reduction, customer satisfaction, product expansion, etc.?"
-                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required></textarea>
-      </div>
-      <!-- Technology & AI Familiarity -->
-      <div>
-        <label for="q8" class="block text-lg font-medium text-gray-800 mb-2">10. Technology &amp; AI Familiarity</label>
-        <textarea id="q8" name="q8" placeholder="Have you tried any AI-powered tools (chatbots, predictive analytics, automation)? Which, and how did they perform?"
-                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required></textarea>
-      </div>
-      <!-- Budget & Investment Appetite -->
-      <div>
-        <label for="q9" class="block text-lg font-medium text-gray-800 mb-2">11. Budget &amp; Investment Appetite</label>
-        <textarea id="q9" name="q9" placeholder="Roughly how much time, money, or resources can you allocate to new software or AI initiatives in the next 6 months?"
-                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required></textarea>
-      </div>
-      <!-- Risk & Compliance Concerns -->
-      <div>
-        <label for="q10" class="block text-lg font-medium text-gray-800 mb-2">12. Risk &amp; Compliance Concerns</label>
-        <textarea id="q10" name="q10" placeholder="Are there any data-privacy, regulatory, or security requirements we should consider when adding new technology?"
-                  class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required></textarea>
-      </div>
-      <!-- Email (bottom) -->
-      <div>
-        <label for="email" class="block text-lg font-medium text-gray-800 mb-2">13. Email Me a Copy &amp; Join Our Mailing List</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com"
-               class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg" required />
-      </div>
-      <!-- Submit Button -->
-      <div>
-        <button type="submit" id="freeBtn"
-                class="w-full bg-indigo-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-          Get Free AI Audit
+
+      <!-- 4) Button to Upgrade to Advanced Audit -->
+      <div class="mt-8 text-center">
+        <button
+          id="advancedButton"
+          class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-md transition"
+        >
+          Get Advanced AI Audit ($49)
         </button>
       </div>
-    </form>
-
-    <!-- Report Display -->
-    <div id="report" class="mt-8 bg-white p-8 rounded-lg shadow-lg" style="display:none;">
-      <h2 class="text-3xl font-semibold mb-4">Your Free AI Audit</h2>
-      <pre id="reportContent" class="whitespace-pre-wrap text-gray-800 text-lg"></pre>
     </div>
   </div>
 
   <script>
-    const form = document.getElementById('quizForm');
-    const reportDiv = document.getElementById('report');
-    const reportContent = document.getElementById('reportContent');
-    const freeBtn = document.getElementById('freeBtn');
+    // Grab references to elements
+    const auditForm = document.getElementById('auditForm');
+    const freeContainer = document.getElementById('freeAuditContainer');
+    const freeContent = document.getElementById('freeAuditContent');
+    const advancedButton = document.getElementById('advancedButton');
 
-    form.addEventListener('submit', async function(e) {
+    let currentSessionId = null;
+
+    auditForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const email   = form.email.value.trim();
-      const answers = {
-        businessType: form.businessType.value.trim(),
-        scale:         form.scale.value.trim(),
-        q1:            form.q1.value.trim(),
-        q2:            form.q2.value.trim(),
-        q3:            form.q3.value.trim(),
-        q4:            form.q4.value.trim(),
-        q5:            form.q5.value.trim(),
-        q6:            form.q6.value.trim(),
-        q7:            form.q7.value.trim(),
-        q8:            form.q8.value.trim(),
-        q9:            form.q9.value.trim(),
-        q10:           form.q10.value.trim()
-      };
+      // 1) Collect form values
+      const formData = new FormData(auditForm);
+      const q1 = formData.get('q1').trim();
+      const q2 = formData.get('q2').trim();
+      const q3 = formData.get('q3').trim();
+      const email = formData.get('email').trim();
 
-      // Reset UI
-      reportDiv.style.display = 'none';
-      reportContent.textContent = 'Loading…';
-      reportContent.classList.remove('text-red-600');
-      freeBtn.disabled = true;
-      freeBtn.classList.add('opacity-50');
+      // 2) Show “Loading…” in the free audit area
+      freeContainer.classList.remove('hidden');
+      freeContent.innerHTML = '<p class="text-gray-600 italic">Generating your free audit…</p>';
 
+      // 3) Call the free‐audit endpoint
       try {
         const resp = await fetch('https://api.aiauditpro.com/api/audit.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, answers })
+          body: JSON.stringify({
+            email,
+            answers: { q1, q2, q3 }
+          })
         });
-        const json = await resp.json();
 
-        if (json.error) {
-          throw new Error(json.error.message || JSON.stringify(json.error));
+        if (!resp.ok) {
+          const errJson = await resp.json().catch(() => ({}));
+          const msg = errJson.error?.message || 'Unknown error';
+          throw new Error(msg);
         }
 
-        // Show free audit
-        reportContent.textContent = json.choices[0].message.content;
-        reportDiv.style.display = 'block';
+        const json = await resp.json();
+        // Save session_id for advanced‐audit button
+        currentSessionId = json.session_id;
 
-        // Inject “Get Advanced AI Audit” button
-        const advBtn = document.createElement('button');
-        advBtn.textContent = 'Get Advanced AI Audit ($49)';
-        advBtn.className = 'mt-6 w-full bg-green-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2';
-        advBtn.onclick = getAdvanced;
-        reportDiv.appendChild(advBtn);
+        // 4) Extract the plain-text "content"
+        let raw = json.choices?.[0]?.message?.content || 'No audit returned.';
 
+        // 5) Strip Markdown bold (“** … **”) → plain text
+        raw = raw.replace(/\*\*(.*?)\*\*/g, '$1');
+
+        // 6) Split into paragraphs by two line breaks
+        const paras = raw.split(/\n\s*\n/).map(p => p.trim()).filter(p => p.length > 0);
+
+        // 7) Build inner HTML
+        freeContent.innerHTML = '';
+        paras.forEach((pText) => {
+          const p = document.createElement('p');
+          // Preserve single newlines inside a paragraph as <br>
+          p.innerHTML = pText.replace(/\n/g, '<br>');
+          freeContent.appendChild(p);
+        });
+
+        // 8) Reveal the “Get Advanced” button
+        advancedButton.disabled = false;
       } catch (err) {
-        reportContent.textContent = `Error: ${err.message}`;
-        reportContent.classList.add('text-red-600');
-        reportDiv.style.display = 'block';
-      } finally {
-        freeBtn.disabled = false;
-        freeBtn.classList.remove('opacity-50');
+        freeContent.innerHTML = `<p class="text-red-600">Error: ${err.message}</p>`;
       }
     });
 
-    async function getAdvanced(e) {
-      e.preventDefault();
-      freeBtn.disabled = true;
-
-      const email   = form.email.value.trim();
-      const answers = {
-        businessType: form.businessType.value.trim(),
-        scale:         form.scale.value.trim(),
-        q1:            form.q1.value.trim(),
-        q2:            form.q2.value.trim(),
-        q3:            form.q3.value.trim(),
-        q4:            form.q4.value.trim(),
-        q5:            form.q5.value.trim(),
-        q6:            form.q6.value.trim(),
-        q7:            form.q7.value.trim(),
-        q8:            form.q8.value.trim(),
-        q9:            form.q9.value.trim(),
-        q10:           form.q10.value.trim()
-      };
-
-      const resp = await fetch('https://api.aiauditpro.com/api/create-checkout-session.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, answers })
-      });
-      const { url } = await resp.json();
-      window.location = url;
-    }
+    // 4) When user clicks “Get Advanced AI Audit ($49)”
+    advancedButton.addEventListener('click', async () => {
+      if (!currentSessionId) {
+        alert('Session not found. Please refresh and try again.');
+        return;
+      }
+      // Redirect to Stripe checkout (your backend creates a session and returns a session_id)
+      // We'll assume you already have a route that spins up a Stripe Checkout session and returns the URL.
+      try {
+        const resp = await fetch('https://api.aiauditpro.com/api/create-checkout-session.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ session_id: currentSessionId })
+        });
+        if (!resp.ok) {
+          const errJson = await resp.json().catch(() => ({}));
+          const msg = errJson.error?.message || 'Unable to start payment flow';
+          throw new Error(msg);
+        }
+        const { checkout_url } = await resp.json();
+        window.location.href = checkout_url;
+      } catch (err) {
+        alert('Error initiating payment: ' + err.message);
+      }
+    });
   </script>
 </body>
 </html>
