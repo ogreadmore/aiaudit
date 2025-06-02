@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial‐scale=1.0" />
   <title>AI Audit Pro for SMBs</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -17,11 +17,14 @@
       <h1 class="text-5xl font-extrabold mb-4">
         Unlock Your Business’s AI Potential
       </h1>
-      <p class="text-lg text-gray-700 mb-6">
-        Answer 13 quick questions and get a free, custom AI audit—no fluff, just actionable insights.
+      <p class="text-lg text-gray-700 mb-4">
+        Answer 12 quick questions and get a free, custom AI audit—no fluff, just actionable insights.
+      </p>
+      <p class="text-md text-indigo-600 font-semibold mb-6">
+        Every report comes with a free 15-minute follow-up consultation.
       </p>
       <!-- Hero CTA -->
-      <a href="#quizForm" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-md transition">
+      <a href="#quizFormSection" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-md transition">
         Get Started Now
       </a>
     </div>
@@ -37,7 +40,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Benefit 1 -->
         <div class="flex items-start">
-          <!-- Icon (Heroicon: Lightning Bolt) -->
+          <!-- Icon (Lightning Bolt) -->
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -51,7 +54,7 @@
         </div>
         <!-- Benefit 2 -->
         <div class="flex items-start">
-          <!-- Icon (Heroicon: Chat) -->
+          <!-- Icon (Chat) -->
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2H7l-4 4V10a2 2 0 012-2h2m5-4h.01M12 14h.01M7 14h.01M17 10h.01" />
@@ -65,7 +68,7 @@
         </div>
         <!-- Benefit 3 -->
         <div class="flex items-start">
-          <!-- Icon (Heroicon: DocumentText) -->
+          <!-- Icon (DocumentText) -->
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M9 12h6m-6 4h6m2 4H7a2 2 0 01-2-2V5a2 2 0 012-2h6l6 6v9a2 2 0 01-2 2z" />
@@ -79,7 +82,7 @@
         </div>
         <!-- Benefit 4 -->
         <div class="flex items-start">
-          <!-- Icon (Heroicon: Users) -->
+          <!-- Icon (Users) -->
           <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M17 20h5v-1a2 2 0 00-2-2h-3m-4 3v-1a2 2 0 00-2-2H5a2 2 0 00-2 2v1h18zm-6-7a4 4 0 100-8 4 4 0 000 8zM9 13a4 4 0 100-8 4 4 0 000 8z" />
@@ -310,10 +313,10 @@
           ></textarea>
         </div>
 
-        <!-- 13. Email & Newsletter Checkbox -->
+        <!-- Email & Newsletter Checkbox (no longer counted among the 12) -->
         <div>
           <label for="email" class="block text-lg font-medium text-gray-800 mb-2">
-            13. Your Email (so we can send your free audit)
+            Your Email (so we can send your free audit)
           </label>
           <input
             type="email"
@@ -336,16 +339,31 @@
           </div>
         </div>
 
-        <!-- Submit Button -->
-        <div>
+        <!-- Two buttons side by side: Free vs. Paid -->
+        <div class="flex space-x-4">
+          <!-- Free Audit Button -->
           <button
             type="submit"
             id="freeBtn"
-            class="w-full bg-indigo-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            class="flex-1 bg-indigo-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition"
           >
             Get Free AI Audit
           </button>
+
+          <!-- Paid Audit Button -->
+          <button
+            type="button"
+            id="paidBtn"
+            class="flex-1 bg-green-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition"
+          >
+            Get Paid AI Audit ($49)
+          </button>
         </div>
+
+        <!-- Sold-with note under paid button -->
+        <p class="text-sm text-gray-600 mt-2">
+          *Each report includes a free 15-minute consultation call.
+        </p>
       </form>
     </section>
 
@@ -355,7 +373,7 @@
     <div id="report" class="mt-8 bg-white p-8 rounded-lg shadow-lg hidden">
       <h2 class="text-3xl font-semibold mb-4">Your Free AI Audit</h2>
       <div id="reportContent" class="whitespace-pre-wrap text-gray-800 text-lg mb-6"></div>
-      <!-- “Get Advanced” button will be injected here -->
+      <!-- “Get Advanced” button will be injected here as before -->
     </div>
   </main>
 
@@ -380,11 +398,13 @@
     const reportDiv = document.getElementById('report');
     const reportContent = document.getElementById('reportContent');
     const freeBtn = document.getElementById('freeBtn');
+    const paidBtn = document.getElementById('paidBtn');
 
+    // 1) When the free-audit form is submitted:
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      // 1) Collect form values
+      // a) Collect form values
       const email      = form.email.value.trim();
       const subscribe  = form.newsletter.checked;
       const answers    = {
@@ -402,15 +422,17 @@
         q10:           form.q10.value.trim()
       };
 
-      // 2) Reset UI for loading
+      // b) Reset UI to “loading”
       reportDiv.classList.add('hidden');
       reportContent.textContent = 'Generating your free AI audit…';
       reportContent.classList.remove('text-red-600');
       freeBtn.disabled = true;
+      paidBtn.disabled = true;
       freeBtn.classList.add('opacity-50');
+      paidBtn.classList.add('opacity-50');
 
       try {
-        // 3) Call free‐audit endpoint (include newsletter preference)
+        // c) Call the free-audit endpoint
         const resp = await fetch('https://api.aiauditpro.com/api/audit.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -422,17 +444,15 @@
           throw new Error(json.error.message || JSON.stringify(json.error));
         }
 
-        // 4) Extract the raw free audit text
+        // d) Extract and clean up Markdown
         let raw = json.choices[0].message.content || 'No audit returned.';
-
-        // 5) Strip out Markdown bold (**text** → text)
         raw = raw.replace(/\*\*(.*?)\*\*/g, '$1');
 
-        // 6) Show the free audit in the <div>, preserving line breaks
+        // e) Show in the #report container
         reportContent.textContent = raw;
         reportDiv.classList.remove('hidden');
 
-        // 7) Create “Get Advanced AI Audit ($49)” button if not already present
+        // f) Inject “Get Advanced…” button below, if not present
         const existingBtn = document.getElementById('advBtn');
         if (existingBtn) existingBtn.remove();
 
@@ -449,18 +469,24 @@
         reportDiv.classList.remove('hidden');
       } finally {
         freeBtn.disabled = false;
+        paidBtn.disabled = false;
         freeBtn.classList.remove('opacity-50');
+        paidBtn.classList.remove('opacity-50');
       }
     });
+
+    // 2) Paid audit button (impulse buy) — same getAdvanced flow
+    paidBtn.addEventListener('click', getAdvanced);
 
     async function getAdvanced(e) {
       e.preventDefault();
       freeBtn.disabled = true;
+      paidBtn.disabled = true;
 
-      // Re‐collect email and answers (for safety)
-      const email   = form.email.value.trim();
-      const subscribe = form.newsletter.checked;
-      const answers = {
+      // Re-collect email & answers
+      const email      = form.email.value.trim();
+      const subscribe  = form.newsletter.checked;
+      const answers    = {
         businessType: form.businessType.value.trim(),
         scale:         form.scale.value.trim(),
         q1:            form.q1.value.trim(),
@@ -476,17 +502,18 @@
       };
 
       try {
-        // 8) Call “create-checkout-session” endpoint
+        // Call your create-checkout-session endpoint
         const resp = await fetch('https://api.aiauditpro.com/api/create-checkout-session.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, answers, subscribe })
         });
         const { url } = await resp.json();
-        window.location = url; // Redirect to Stripe Checkout
+        window.location = url; // redirect to Stripe Checkout
       } catch (err) {
         alert('Error initiating payment: ' + err.message);
         freeBtn.disabled = false;
+        paidBtn.disabled = false;
       }
     }
   </script>
