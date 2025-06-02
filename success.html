@@ -28,7 +28,7 @@
       </div>
       <!-- Report Container -->
       <div id="reportContainer" class="hidden bg-white p-6 rounded-lg shadow-md">
-        <!-- The model’s first line will become our heading -->
+        <!-- The model’s first line becomes our heading -->
         <h2 id="reportHeading" class="text-2xl font-semibold text-gray-800 mb-4"></h2>
         <!-- All subsequent paragraphs go here -->
         <div id="reportContent" class="text-base leading-relaxed text-gray-800 space-y-4">
@@ -40,7 +40,7 @@
 
   <script>
     (async () => {
-      // 1) Extract session_id from URL
+      // 1) Get session_id from URL
       const params = new URLSearchParams(location.search);
       const session_id = params.get('session_id');
       if (!session_id) {
@@ -52,68 +52,66 @@
       }
 
       try {
-        // 2) Fetch the advanced audit JSON
+        // 2) Fetch the advanced audit
         const response = await fetch('https://api.aiauditpro.com/api/advanced-audit.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ session_id })
         });
 
-        // If non-2xx, attempt to read the error JSON
         if (!response.ok) {
-          const errJson = await response.json();
-          const msg = errJson.error?.message || JSON.stringify(errJson.error || errJson);
+          const errJson = await response.json().catch(() => ({}));
+          const msg = errJson.error?.message || 'Unknown error';
           throw new Error(msg);
         }
 
         const json = await response.json();
 
-        // 3) Hide the loading spinner
+        // 3) Hide spinner
         document.getElementById('loading').classList.add('hidden');
 
-        // 4) If the JSON has an error, show it
+        // 4) If JSON has an error, display it
         if (json.error) {
-          const errMsg = json.error.message || JSON.stringify(json.error);
+          const errMsg = json.error.message || 'Unknown error';
           const rc = document.getElementById('reportContainer');
           rc.classList.remove('hidden');
           rc.innerHTML = `<p class="text-red-600 text-center">Error: ${errMsg}</p>`;
           return;
         }
 
-        // 5) Grab the model’s plain-text output
+        // 5) Grab the plain-text output (no Markdown)
         const raw = json.choices?.[0]?.message?.content || 'No content returned.';
 
-        // Split on double blank lines (i.e. “\n\n”) to get “blocks”
+        // Split on double newlines to get “blocks”
         const blocks = raw.split(/\n\s*\n/);
 
-        // The very first non-empty block is our heading line
+        // The first non-empty block becomes our heading
         let headingLine = blocks.shift().trim();
         if (!headingLine) {
           headingLine = 'Full AI Automation Opportunity Report';
         }
 
         // 6) Insert heading
-        const h2 = document.getElementById('reportHeading');
-        h2.innerText = headingLine;
+        document.getElementById('reportHeading').innerText = headingLine;
 
-        // 7) For each remaining block, wrap as a <p>
+        // 7) Insert each remaining block as a paragraph
         const contentDiv = document.getElementById('reportContent');
-        contentDiv.innerHTML = '';  // clear
+        contentDiv.innerHTML = '';
 
         blocks.forEach(block => {
           const text = block.trim();
-          if (text.length === 0) return;
+          if (!text.length) return;
 
           const p = document.createElement('p');
-          // Replace internal line breaks with <br> so paragraphs preserve line wraps
+          // Preserve internal line breaks
           p.innerHTML = text.replace(/\n/g, '<br>');
           contentDiv.appendChild(p);
         });
 
-        // 8) Reveal the container
+        // 8) Show the container
         document.getElementById('reportContainer').classList.remove('hidden');
       } catch (err) {
-        // Hide the spinner, show error
+        // Hide spinner, show error
         document.getElementById('loading').classList.add('hidden');
         const rc = document.getElementById('reportContainer');
         rc.classList.remove('hidden');
