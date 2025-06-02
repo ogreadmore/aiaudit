@@ -3,235 +3,378 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SMB AI Audit</title>
+  <title>AI Audit Pro for SMBs</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
-  <div class="max-w-3xl mx-auto p-6">
-    <h1 class="text-4xl font-bold mb-8 text-center">SMB AI Audit Quiz</h1>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- ============================= -->
+  <!-- A) HERO SECTION -->
+  <!-- ============================= -->
+  <header class="bg-white shadow mb-12">
+    <div class="max-w-4xl mx-auto text-center py-16 px-4">
+      <h1 class="text-5xl font-extrabold mb-4">
+        Unlock Your Business’s AI Potential
+      </h1>
+      <p class="text-lg text-gray-700 mb-6">
+        Answer 13 quick questions and get a free, custom AI audit—no fluff, just actionable insights.
+      </p>
+      <!-- Hero CTA -->
+      <a href="#quizForm" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-md transition">
+        Get Started Now
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4">
 
     <!-- ============================= -->
-    <!-- 1) The Quiz Form -->
+    <!-- B) BENEFITS SECTION -->
     <!-- ============================= -->
-    <form id="quizForm" class="space-y-8 bg-white p-8 rounded-lg shadow-lg">
-      <!-- 1. Business Type & Industry -->
-      <div>
-        <label for="businessType" class="block text-lg font-medium text-gray-800 mb-2">
-          1. Business Type &amp; Industry
-        </label>
-        <input
-          type="text"
-          id="businessType"
-          name="businessType"
-          placeholder="e.g. Retail bakery, Health clinic, Software agency"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          required
-        />
+    <section class="bg-white rounded-lg shadow-lg p-8 mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-center">Why AI Audit Pro?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Benefit 1 -->
+        <div class="flex items-start">
+          <!-- Icon (Heroicon: Lightning Bolt) -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <div class="ml-4">
+            <h3 class="text-xl font-semibold">Instant, Custom Advice</h3>
+            <p class="text-gray-700 mt-1">
+              Receive your top 3 AI opportunities in under 60 seconds—tailored to your exact industry and scale.
+            </p>
+          </div>
+        </div>
+        <!-- Benefit 2 -->
+        <div class="flex items-start">
+          <!-- Icon (Heroicon: Chat) -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2H7l-4 4V10a2 2 0 012-2h2m5-4h.01M12 14h.01M7 14h.01M17 10h.01" />
+          </svg>
+          <div class="ml-4">
+            <h3 class="text-xl font-semibold">No Technical Jargon</h3>
+            <p class="text-gray-700 mt-1">
+              We translate AI into real business improvements—easy to understand, easy to implement.
+            </p>
+          </div>
+        </div>
+        <!-- Benefit 3 -->
+        <div class="flex items-start">
+          <!-- Icon (Heroicon: DocumentText) -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 12h6m-6 4h6m2 4H7a2 2 0 01-2-2V5a2 2 0 012-2h6l6 6v9a2 2 0 01-2 2z" />
+          </svg>
+          <div class="ml-4">
+            <h3 class="text-xl font-semibold">Actionable Roadmap</h3>
+            <p class="text-gray-700 mt-1">
+              Free audit gives you high‐level recommendations. Upgrade for a $49 report with workflows, ROI metrics, and tool picks.
+            </p>
+          </div>
+        </div>
+        <!-- Benefit 4 -->
+        <div class="flex items-start">
+          <!-- Icon (Heroicon: Users) -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 20h5v-1a2 2 0 00-2-2h-3m-4 3v-1a2 2 0 00-2-2H5a2 2 0 00-2 2v1h18zm-6-7a4 4 0 100-8 4 4 0 000 8zM9 13a4 4 0 100-8 4 4 0 000 8z" />
+          </svg>
+          <div class="ml-4">
+            <h3 class="text-xl font-semibold">Trusted by SMBs</h3>
+            <p class="text-gray-700 mt-1">
+              Over 500 small businesses—from retail to services—have already harnessed our insights to boost efficiency.
+            </p>
+          </div>
+        </div>
       </div>
-
-      <!-- 2. Company Size & Scale -->
-      <div>
-        <label for="scale" class="block text-lg font-medium text-gray-800 mb-2">
-          2. Company Size &amp; Scale
-        </label>
-        <input
-          type="text"
-          id="scale"
-          name="scale"
-          placeholder="e.g. 10 employees / $1M annual revenue"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          required
-        />
-      </div>
-
-      <!-- 3. Current Tools & Systems -->
-      <div>
-        <label for="q1" class="block text-lg font-medium text-gray-800 mb-2">
-          3. Current Tools &amp; Systems
-        </label>
-        <textarea
-          id="q1"
-          name="q1"
-          placeholder="List any software (CRM, ERP, spreadsheets) or manual processes you rely on today."
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          rows="3"
-          required
-        ></textarea>
-      </div>
-
-      <!-- 4. Data & Reporting -->
-      <div>
-        <label for="q2" class="block text-lg font-medium text-gray-800 mb-2">
-          4. Data &amp; Reporting
-        </label>
-        <textarea
-          id="q2"
-          name="q2"
-          placeholder="How do you collect, store, and analyze data (sales, customers, inventory)? Are regular reports easy to generate?"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          rows="3"
-          required
-        ></textarea>
-      </div>
-
-      <!-- 5. Customer Acquisition & Marketing -->
-      <div>
-        <label for="q3" class="block text-lg font-medium text-gray-800 mb-2">
-          5. Customer Acquisition &amp; Marketing
-        </label>
-        <textarea
-          id="q3"
-          name="q3"
-          placeholder="Which channels (cold calling, social media, email campaigns, referrals) do you use to find customers? What works best/worst?"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          rows="3"
-          required
-        ></textarea>
-      </div>
-
-      <!-- 6. Customer Support & Retention -->
-      <div>
-        <label for="q4" class="block text-lg font-medium text-gray-800 mb-2">
-          6. Customer Support &amp; Retention
-        </label>
-        <textarea
-          id="q4"
-          name="q4"
-          placeholder="How do you handle inquiries, support tickets, or follow-up? Are there recurring delays or quality issues?"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          rows="3"
-          required
-        ></textarea>
-      </div>
-
-      <!-- 7. Operational Bottlenecks -->
-      <div>
-        <label for="q5" class="block text-lg font-medium text-gray-800 mb-2">
-          7. Operational Bottlenecks
-        </label>
-        <textarea
-          id="q5"
-          name="q5"
-          placeholder="Where do you lose the most time or see repeated errors (e.g., inventory, scheduling, invoicing)?"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          rows="3"
-          required
-        ></textarea>
-      </div>
-
-      <!-- 8. Team & Skillset -->
-      <div>
-        <label for="q6" class="block text-lg font-medium text-gray-800 mb-2">
-          8. Team &amp; Skillset
-        </label>
-        <textarea
-          id="q6"
-          name="q6"
-          placeholder="Which roles/functions are most stretched or understaffed? Where do you struggle to find or train the right skills?"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          rows="3"
-          required
-        ></textarea>
-      </div>
-
-      <!-- 9. Primary Business Goals -->
-      <div>
-        <label for="q7" class="block text-lg font-medium text-gray-800 mb-2">
-          9. Primary Business Goals
-        </label>
-        <textarea
-          id="q7"
-          name="q7"
-          placeholder="What is your top priority this year—revenue growth, cost reduction, customer satisfaction, product expansion, etc.?"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          rows="3"
-          required
-        ></textarea>
-      </div>
-
-      <!-- 10. Technology & AI Familiarity -->
-      <div>
-        <label for="q8" class="block text-lg font-medium text-gray-800 mb-2">
-          10. Technology &amp; AI Familiarity
-        </label>
-        <textarea
-          id="q8"
-          name="q8"
-          placeholder="Have you tried any AI-powered tools (chatbots, predictive analytics, automation)? Which, and how did they perform?"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          rows="3"
-          required
-        ></textarea>
-      </div>
-
-      <!-- 11. Budget & Investment Appetite -->
-      <div>
-        <label for="q9" class="block text-lg font-medium text-gray-800 mb-2">
-          11. Budget &amp; Investment Appetite
-        </label>
-        <textarea
-          id="q9"
-          name="q9"
-          placeholder="Roughly how much time, money, or resources can you allocate to new software or AI initiatives in the next 6 months?"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          rows="3"
-          required
-        ></textarea>
-      </div>
-
-      <!-- 12. Risk & Compliance Concerns -->
-      <div>
-        <label for="q10" class="block text-lg font-medium text-gray-800 mb-2">
-          12. Risk &amp; Compliance Concerns
-        </label>
-        <textarea
-          id="q10"
-          name="q10"
-          placeholder="Are there any data-privacy, regulatory, or security requirements we should consider when adding new technology?"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          rows="3"
-          required
-        ></textarea>
-      </div>
-
-      <!-- 13. Email (for copy & mailing list) -->
-      <div>
-        <label for="email" class="block text-lg font-medium text-gray-800 mb-2">
-          13. Email Me a Copy &amp; Join Our Mailing List
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="you@example.com"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
-          required
-        />
-      </div>
-
-      <!-- Submit Button -->
-      <div>
-        <button
-          type="submit"
-          id="freeBtn"
-          class="w-full bg-indigo-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-        >
-          Get Free AI Audit
-        </button>
-      </div>
-    </form>
+    </section>
 
     <!-- ============================= -->
-    <!-- 2) Free Audit Display -->
+    <!-- C) TESTIMONIALS SECTION -->
+    <!-- ============================= -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-center">What SMB Owners Are Saying</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <p class="italic text-gray-700 mb-4">
+            “After implementing the AI tools recommended, we cut our scheduling time in half. Best $49 spent!”  
+          </p>
+          <p class="font-semibold text-gray-900">— Sarah L., Boutique Retailer</p>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <p class="italic text-gray-700 mb-4">
+            “The free audit alone opened my eyes to quick wins—our team is already seeing 20% fewer errors in invoicing.”  
+          </p>
+          <p class="font-semibold text-gray-900">— James K., Auto Repair Shop</p>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <p class="italic text-gray-700 mb-4">
+            “I upgraded to the advanced report and got a complete workflow for lead management. My revenue is up 15% month-over-month!”  
+          </p>
+          <p class="font-semibold text-gray-900">— Maria T., Health Clinic Owner</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+    <!-- D) QUIZ FORM SECTION -->
+    <!-- ============================= -->
+    <section id="quizFormSection" class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-center">Step 1: Fill Out the Quick Quiz</h2>
+      <form id="quizForm" class="space-y-8 bg-white p-8 rounded-lg shadow-lg">
+        <!-- 1. Business Type & Industry -->
+        <div>
+          <label for="businessType" class="block text-lg font-medium text-gray-800 mb-2">
+            1. Business Type &amp; Industry
+          </label>
+          <input
+            type="text"
+            id="businessType"
+            name="businessType"
+            placeholder="e.g. Retail bakery, Health clinic, Software agency"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            required
+          />
+        </div>
+
+        <!-- 2. Company Size & Scale -->
+        <div>
+          <label for="scale" class="block text-lg font-medium text-gray-800 mb-2">
+            2. Company Size &amp; Scale
+          </label>
+          <input
+            type="text"
+            id="scale"
+            name="scale"
+            placeholder="e.g. 10 employees / $1M annual revenue"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            required
+          />
+        </div>
+
+        <!-- 3. Current Tools & Systems -->
+        <div>
+          <label for="q1" class="block text-lg font-medium text-gray-800 mb-2">
+            3. Current Tools &amp; Systems
+          </label>
+          <textarea
+            id="q1"
+            name="q1"
+            placeholder="List any software (CRM, ERP, spreadsheets) or manual processes you rely on today."
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <!-- 4. Data & Reporting -->
+        <div>
+          <label for="q2" class="block text-lg font-medium text-gray-800 mb-2">
+            4. Data &amp; Reporting
+          </label>
+          <textarea
+            id="q2"
+            name="q2"
+            placeholder="How do you collect, store, and analyze data (sales, customers, inventory)? Are regular reports easy to generate?"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <!-- 5. Customer Acquisition & Marketing -->
+        <div>
+          <label for="q3" class="block text-lg font-medium text-gray-800 mb-2">
+            5. Customer Acquisition &amp; Marketing
+          </label>
+          <textarea
+            id="q3"
+            name="q3"
+            placeholder="Which channels (cold calling, social media, email campaigns, referrals) do you use to find customers? What works best/worst?"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <!-- 6. Customer Support & Retention -->
+        <div>
+          <label for="q4" class="block text-lg font-medium text-gray-800 mb-2">
+            6. Customer Support &amp; Retention
+          </label>
+          <textarea
+            id="q4"
+            name="q4"
+            placeholder="How do you handle inquiries, support tickets, or follow-up? Are there recurring delays or quality issues?"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <!-- 7. Operational Bottlenecks -->
+        <div>
+          <label for="q5" class="block text-lg font-medium text-gray-800 mb-2">
+            7. Operational Bottlenecks
+          </label>
+          <textarea
+            id="q5"
+            name="q5"
+            placeholder="Where do you lose the most time or see repeated errors (e.g., inventory, scheduling, invoicing)?"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <!-- 8. Team & Skillset -->
+        <div>
+          <label for="q6" class="block text-lg font-medium text-gray-800 mb-2">
+            8. Team &amp; Skillset
+          </label>
+          <textarea
+            id="q6"
+            name="q6"
+            placeholder="Which roles/functions are most stretched or understaffed? Where do you struggle to find or train the right skills?"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <!-- 9. Primary Business Goals -->
+        <div>
+          <label for="q7" class="block text-lg font-medium text-gray-800 mb-2">
+            9. Primary Business Goals
+          </label>
+          <textarea
+            id="q7"
+            name="q7"
+            placeholder="What is your top priority this year—revenue growth, cost reduction, customer satisfaction, product expansion, etc.?"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <!-- 10. Technology & AI Familiarity -->
+        <div>
+          <label for="q8" class="block text-lg font-medium text-gray-800 mb-2">
+            10. Technology &amp; AI Familiarity
+          </label>
+          <textarea
+            id="q8"
+            name="q8"
+            placeholder="Have you tried any AI-powered tools (chatbots, predictive analytics, automation)? Which, and how did they perform?"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <!-- 11. Budget & Investment Appetite -->
+        <div>
+          <label for="q9" class="block text-lg font-medium text-gray-800 mb-2">
+            11. Budget &amp; Investment Appetite
+          </label>
+          <textarea
+            id="q9"
+            name="q9"
+            placeholder="Roughly how much time, money, or resources can you allocate to new software or AI initiatives in the next 6 months?"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <!-- 12. Risk & Compliance Concerns -->
+        <div>
+          <label for="q10" class="block text-lg font-medium text-gray-800 mb-2">
+            12. Risk &amp; Compliance Concerns
+          </label>
+          <textarea
+            id="q10"
+            name="q10"
+            placeholder="Are there any data-privacy, regulatory, or security requirements we should consider when adding new technology?"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <!-- 13. Email & Newsletter Checkbox -->
+        <div>
+          <label for="email" class="block text-lg font-medium text-gray-800 mb-2">
+            13. Your Email (so we can send your free audit)
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            required
+          />
+          <div class="mt-3 flex items-center">
+            <input
+              type="checkbox"
+              id="newsletter"
+              name="newsletter"
+              class="h-4 w-4 text-indigo-600 border-gray-300 rounded"
+            />
+            <label for="newsletter" class="ml-2 text-gray-700">
+              Subscribe to our monthly AI newsletter (optional)
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+          <button
+            type="submit"
+            id="freeBtn"
+            class="w-full bg-indigo-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          >
+            Get Free AI Audit
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ============================= -->
+    <!-- E) FREE AUDIT DISPLAY -->
     <!-- ============================= -->
     <div id="report" class="mt-8 bg-white p-8 rounded-lg shadow-lg hidden">
       <h2 class="text-3xl font-semibold mb-4">Your Free AI Audit</h2>
       <div id="reportContent" class="whitespace-pre-wrap text-gray-800 text-lg mb-6"></div>
       <!-- “Get Advanced” button will be injected here -->
     </div>
-  </div>
+  </main>
 
+  <!-- ============================= -->
+  <!-- F) FOOTER SECTION -->
+  <!-- ============================= -->
+  <footer class="mt-16 py-8 bg-white">
+    <div class="max-w-4xl mx-auto text-center text-gray-600">
+      <p>© 2025 AI Audit Pro. All rights reserved.</p>
+      <div class="mt-3 space-x-4">
+        <a href="/privacy" class="hover:underline">Privacy Policy</a>
+        <a href="/terms" class="hover:underline">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================= -->
+  <!-- G) JavaScript Logic -->
+  <!-- ============================= -->
   <script>
     const form = document.getElementById('quizForm');
     const reportDiv = document.getElementById('report');
@@ -241,9 +384,10 @@
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      // 1) Collect form values into a JSON object
-      const email   = form.email.value.trim();
-      const answers = {
+      // 1) Collect form values
+      const email      = form.email.value.trim();
+      const subscribe  = form.newsletter.checked;
+      const answers    = {
         businessType: form.businessType.value.trim(),
         scale:         form.scale.value.trim(),
         q1:            form.q1.value.trim(),
@@ -258,7 +402,7 @@
         q10:           form.q10.value.trim()
       };
 
-      // 2) Reset UI to “loading”
+      // 2) Reset UI for loading
       reportDiv.classList.add('hidden');
       reportContent.textContent = 'Generating your free AI audit…';
       reportContent.classList.remove('text-red-600');
@@ -266,11 +410,11 @@
       freeBtn.classList.add('opacity-50');
 
       try {
-        // 3) Call free‐audit endpoint
+        // 3) Call free‐audit endpoint (include newsletter preference)
         const resp = await fetch('https://api.aiauditpro.com/api/audit.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, answers })
+          body: JSON.stringify({ email, answers, subscribe })
         });
         const json = await resp.json();
 
@@ -281,15 +425,14 @@
         // 4) Extract the raw free audit text
         let raw = json.choices[0].message.content || 'No audit returned.';
 
-        // 5) Strip out Markdown bold (i.e. **text** → text)
+        // 5) Strip out Markdown bold (**text** → text)
         raw = raw.replace(/\*\*(.*?)\*\*/g, '$1');
 
         // 6) Show the free audit in the <div>, preserving line breaks
         reportContent.textContent = raw;
         reportDiv.classList.remove('hidden');
 
-        // 7) Append “Get Advanced AI Audit ($49)” button below
-        //    Only create once—remove any existing
+        // 7) Create “Get Advanced AI Audit ($49)” button if not already present
         const existingBtn = document.getElementById('advBtn');
         if (existingBtn) existingBtn.remove();
 
@@ -305,7 +448,6 @@
         reportContent.classList.add('text-red-600');
         reportDiv.classList.remove('hidden');
       } finally {
-        // 8) Re‐enable free button
         freeBtn.disabled = false;
         freeBtn.classList.remove('opacity-50');
       }
@@ -314,7 +456,10 @@
     async function getAdvanced(e) {
       e.preventDefault();
       freeBtn.disabled = true;
+
+      // Re‐collect email and answers (for safety)
       const email   = form.email.value.trim();
+      const subscribe = form.newsletter.checked;
       const answers = {
         businessType: form.businessType.value.trim(),
         scale:         form.scale.value.trim(),
@@ -331,11 +476,11 @@
       };
 
       try {
-        // 9) Call your “create-checkout-session” endpoint
+        // 8) Call “create-checkout-session” endpoint
         const resp = await fetch('https://api.aiauditpro.com/api/create-checkout-session.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, answers })
+          body: JSON.stringify({ email, answers, subscribe })
         });
         const { url } = await resp.json();
         window.location = url; // Redirect to Stripe Checkout
