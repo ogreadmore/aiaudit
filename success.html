@@ -70,8 +70,6 @@
         }
 
         const rawContent = json.choices?.[0]?.message?.content || 'No content returned.';
-
-        // Split into sections on double line breaks
         const sections = rawContent.split(/\n\s*\n/);
         const container = document.getElementById('reportContent');
         container.innerHTML = '';
@@ -81,14 +79,14 @@
           const lines = section.trim().split('\n');
           const header = lines.shift().trim();
           const body = lines.join('<br>');
-          
-          // Create header element
+
+          // Header element (only this is bold and larger)
           const h3 = document.createElement('h3');
           h3.className = 'text-xl font-semibold text-gray-800 mt-6 mb-2';
           h3.innerText = header;
           container.appendChild(h3);
 
-          // Create paragraph element
+          // Paragraph element (normal weight)
           const p = document.createElement('p');
           p.className = 'mb-4';
           p.innerHTML = body;
