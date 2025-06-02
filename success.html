@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thank You! Generating Your Advanced AI Audit…</title>
+  <title>Thank You! Your AI Audit is Ready</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-900">
   <div class="min-h-screen flex flex-col justify-center items-center p-4">
     <div class="w-full max-w-3xl">
-      <!-- Header -->
+      <!-- Heading -->
       <h1 class="text-4xl font-extrabold text-center mb-4">
-        Thank you! Generating your advanced AI audit…
+        Thank you! Your AI Audit is Ready
       </h1>
       <p class="text-center text-lg text-gray-600 mb-8">
         Please hold on while we prepare a detailed, in-depth report tailored to your business.
       </p>
-      <!-- Loading Indicator -->
+      <!-- Loading Spinner -->
       <div id="loading" class="flex justify-center mb-8">
         <svg class="animate-spin h-12 w-12 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -28,13 +28,11 @@
       </div>
       <!-- Report Container -->
       <div id="reportContainer" class="hidden bg-white p-6 rounded-lg shadow-md">
-        <!-- Subheading -->
-        <h2 class="text-2xl font-semibold text-gray-800 mb-6">
-          Your Detailed Advanced AI Audit
-        </h2>
-        <!-- The GPT‐4 content will be injected here -->
-        <div id="reportContent" class="text-base leading-relaxed text-gray-800">
-          <!-- Filled by JavaScript -->
+        <!-- The model’s first line will become our heading -->
+        <h2 id="reportHeading" class="text-2xl font-semibold text-gray-800 mb-4"></h2>
+        <!-- All subsequent paragraphs go here -->
+        <div id="reportContent" class="text-base leading-relaxed text-gray-800 space-y-4">
+          <!-- Injected by JavaScript -->
         </div>
       </div>
     </div>
@@ -42,14 +40,14 @@
 
   <script>
     (async () => {
-      // 1) Extract session_id from query parameters
+      // 1) Extract session_id from URL
       const params = new URLSearchParams(location.search);
       const session_id = params.get('session_id');
       if (!session_id) {
         document.getElementById('loading').style.display = 'none';
-        const reportContainer = document.getElementById('reportContainer');
-        reportContainer.classList.remove('hidden');
-        reportContainer.innerHTML = '<p class="text-red-600 text-center">Error: Missing session_id in URL.</p>';
+        const rc = document.getElementById('reportContainer');
+        rc.classList.remove('hidden');
+        rc.innerHTML = '<p class="text-red-600 text-center">Error: Missing session_id in URL.</p>';
         return;
       }
 
@@ -61,7 +59,7 @@
           body: JSON.stringify({ session_id })
         });
 
-        // If we get a non-2xx status, throw
+        // If non-2xx, attempt to read the error JSON
         if (!response.ok) {
           const errJson = await response.json();
           const msg = errJson.error?.message || JSON.stringify(errJson.error || errJson);
@@ -70,53 +68,56 @@
 
         const json = await response.json();
 
-        // 3) Hide loader
+        // 3) Hide the loading spinner
         document.getElementById('loading').classList.add('hidden');
 
-        // 4) If JSON has an "error" key, display it
+        // 4) If the JSON has an error, show it
         if (json.error) {
-          const errorMsg = json.error.message || JSON.stringify(json.error);
-          const reportContainer = document.getElementById('reportContainer');
-          reportContainer.classList.remove('hidden');
-          reportContainer.innerHTML = `<p class="text-red-600 text-center">Error: ${errorMsg}</p>`;
+          const errMsg = json.error.message || JSON.stringify(json.error);
+          const rc = document.getElementById('reportContainer');
+          rc.classList.remove('hidden');
+          rc.innerHTML = `<p class="text-red-600 text-center">Error: ${errMsg}</p>`;
           return;
         }
 
-        // 5) Otherwise, render the GPT‐4 content with spacing and bold headers
-        const rawContent = json.choices?.[0]?.message?.content || 'No content returned.';
+        // 5) Grab the model’s plain-text output
+        const raw = json.choices?.[0]?.message?.content || 'No content returned.';
 
-        // Split into sections on double line breaks
-        const sections = rawContent.split(/\n\s*\n/);
-        const container = document.getElementById('reportContent');
-        container.innerHTML = '';  // clear
+        // Split on double blank lines (i.e. “\n\n”) to get “blocks”
+        const blocks = raw.split(/\n\s*\n/);
 
-        sections.forEach(section => {
-          // Split out first line as header; rest is body
-          const lines = section.trim().split('\n');
-          const header = lines.shift().trim();
-          const body = lines.join('<br>');
+        // The very first non-empty block is our heading line
+        let headingLine = blocks.shift().trim();
+        if (!headingLine) {
+          headingLine = 'Full AI Automation Opportunity Report';
+        }
 
-          // Create the header element (bold + larger)
-          const h3 = document.createElement('h3');
-          h3.className = 'text-xl font-semibold text-gray-800 mt-6 mb-2';
-          h3.innerText = header;
-          container.appendChild(h3);
+        // 6) Insert heading
+        const h2 = document.getElementById('reportHeading');
+        h2.innerText = headingLine;
 
-          // Create the body paragraph (normal weight)
+        // 7) For each remaining block, wrap as a <p>
+        const contentDiv = document.getElementById('reportContent');
+        contentDiv.innerHTML = '';  // clear
+
+        blocks.forEach(block => {
+          const text = block.trim();
+          if (text.length === 0) return;
+
           const p = document.createElement('p');
-          p.className = 'mb-4';
-          p.innerHTML = body;
-          container.appendChild(p);
+          // Replace internal line breaks with <br> so paragraphs preserve line wraps
+          p.innerHTML = text.replace(/\n/g, '<br>');
+          contentDiv.appendChild(p);
         });
 
-        // 6) Show the container
+        // 8) Reveal the container
         document.getElementById('reportContainer').classList.remove('hidden');
       } catch (err) {
-        // Hide loader, show error
+        // Hide the spinner, show error
         document.getElementById('loading').classList.add('hidden');
-        const reportContainer = document.getElementById('reportContainer');
-        reportContainer.classList.remove('hidden');
-        reportContainer.innerHTML = `<p class="text-red-600 text-center">Error fetching report: ${err.message}</p>`;
+        const rc = document.getElementById('reportContainer');
+        rc.classList.remove('hidden');
+        rc.innerHTML = `<p class="text-red-600 text-center">Error fetching report: ${err.message}</p>`;
       }
     })();
   </script>
