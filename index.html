@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Audit Pro for SMBs</title>
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Font Awesome CDN (v6) -->
+  <!-- Font Awesome Free v6 (no SRI/integrity) -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-pO1Tsd2Jm0J/8eaYwfP8iKAXoKxxoZgLwYlX/1hgiv+eByVY3vT0dCQeZvEgSBpXnK6tZEZYzl3bZ7P8xVDmEg=="
     crossorigin="anonymous"
-    referrerpolicy="no-referrer"
   />
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -30,6 +28,7 @@
       <p class="text-lg text-gray-700 mb-6">
         Answer 12 quick questions and get a free, custom AI audit—no fluff, just actionable insights.
       </p>
+      <!-- Hero CTA -->
       <a href="#quizFormSection" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-md transition">
         Get Started Now
       </a>
@@ -43,7 +42,6 @@
     <!-- ============================= -->
     <section class="bg-white rounded-lg shadow-lg p-8 mb-12">
       <h2 class="text-3xl font-bold mb-6 text-center">Why AI Audit Pro?</h2>
-
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Benefit 1: Instant, Custom Advice -->
         <div class="flex items-start">
@@ -55,7 +53,6 @@
             </p>
           </div>
         </div>
-
         <!-- Benefit 2: No Technical Jargon -->
         <div class="flex items-start">
           <i class="fa-regular fa-comments text-indigo-600 text-2xl flex-shrink-0"></i>
@@ -66,7 +63,6 @@
             </p>
           </div>
         </div>
-
         <!-- Benefit 3: Actionable Roadmap -->
         <div class="flex items-start">
           <i class="fa-regular fa-file-lines text-indigo-600 text-2xl flex-shrink-0"></i>
@@ -77,7 +73,6 @@
             </p>
           </div>
         </div>
-
         <!-- Benefit 4: Trusted by SMBs -->
         <div class="flex items-start">
           <i class="fa-solid fa-users text-indigo-600 text-2xl flex-shrink-0"></i>
@@ -88,10 +83,9 @@
             </p>
           </div>
         </div>
-
         <!-- Benefit 5: Pro-Level Detail -->
         <div class="flex items-start">
-          <i class="fa-regular fa-circle-check text-indigo-600 text-2xl flex-shrink-0"></i>
+          <i class="fa-solid fa-circle-check text-indigo-600 text-2xl flex-shrink-0"></i>
           <div class="ml-4">
             <h3 class="text-xl font-semibold">Pro-Level Detail</h3>
             <p class="text-gray-700 mt-1">
@@ -99,14 +93,13 @@
             </p>
           </div>
         </div>
-
         <!-- Benefit 6: Free 15-Minute Consultation -->
         <div class="flex items-start">
           <i class="fa-regular fa-clock text-indigo-600 text-2xl flex-shrink-0"></i>
           <div class="ml-4">
             <h3 class="text-xl font-semibold">Free 15-Minute Consultation</h3>
             <p class="text-gray-700 mt-1">
-              Every Pro Audit includes a 15-minute follow-up call—ask any questions, get clarifications, and ensure you hit the ground running.
+              Every Pro Audit includes a 15-minute follow-up call—ask questions, get clarifications, and ensure you hit the ground running.
             </p>
           </div>
         </div>
@@ -136,7 +129,7 @@
         <!-- Testimonial 3 -->
         <div class="bg-white p-6 rounded-lg shadow-md">
           <p class="italic text-gray-700 mb-4">
-            “I upgraded to the Pro Audit and got a complete workflow for lead management. My revenue is up 15% month-over-month!”
+            “I upgraded to the Pro report and got a complete workflow for lead management. My revenue is up 15% month-over-month!”
           </p>
           <p class="font-semibold text-gray-900">— Maria T., Health Clinic Owner</p>
         </div>
@@ -355,21 +348,21 @@
           </div>
         </div>
 
-        <!-- Side-by-Side Buttons for Free vs. Pro -->
-        <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+        <!-- Submit Buttons: Free & Pro side by side -->
+        <div class="flex flex-col sm:flex-row gap-4 mt-6">
           <!-- Free Audit Button -->
           <button
-            type="button"
+            type="submit"
             id="freeBtn"
-            class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-md text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition"
+            class="flex-1 bg-indigo-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             Get Free AI Audit
           </button>
-          <!-- Pro Audit Button -->
+          <!-- Pro Audit Button (impulse buy) -->
           <button
             type="button"
             id="proBtn"
-            class="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded-md text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition"
+            class="flex-1 bg-green-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
           >
             Get Pro AI Audit ($49)
           </button>
@@ -383,13 +376,7 @@
     <div id="report" class="mt-8 bg-white p-8 rounded-lg shadow-lg hidden">
       <h2 class="text-3xl font-semibold mb-4">Your Free AI Audit</h2>
       <div id="reportContent" class="whitespace-pre-wrap text-gray-800 text-lg mb-6"></div>
-      <!-- The Pro button is always visible below too for impulse upgrades -->
-      <button
-        id="proBtnBelow"
-        class="w-full bg-green-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition"
-      >
-        Get Pro AI Audit ($49)
-      </button>
+      <!-- “Get Pro AI Audit” button injected here as fallback if not clicked earlier -->
     </div>
 
   </main>
@@ -416,16 +403,15 @@
     const reportContent = document.getElementById('reportContent');
     const freeBtn = document.getElementById('freeBtn');
     const proBtn = document.getElementById('proBtn');
-    const proBtnBelow = document.getElementById('proBtnBelow');
 
-    // When “Get Free AI Audit” is clicked
-    freeBtn.addEventListener('click', async function(e) {
+    // Handle “Free AI Audit” submission
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
       // 1) Collect form values
-      const email      = form.email.value.trim();
-      const subscribe  = form.newsletter.checked;
-      const answers    = {
+      const email     = form.email.value.trim();
+      const subscribe = form.newsletter.checked;
+      const answers   = {
         businessType: form.businessType.value.trim(),
         scale:         form.scale.value.trim(),
         q1:            form.q1.value.trim(),
@@ -445,12 +431,12 @@
       reportContent.textContent = 'Generating your free AI audit…';
       reportContent.classList.remove('text-red-600');
       freeBtn.disabled = true;
-      proBtn.disabled = true;
+      proBtn.disabled  = true;
       freeBtn.classList.add('opacity-50');
-      proBtn.classList.add('opacity-50');
+      proBtn.classList .add('opacity-50');
 
       try {
-        // 3) Call free-audit endpoint (include newsletter preference)
+        // 3) Call free‐audit endpoint (include newsletter preference)
         const resp = await fetch('https://api.aiauditpro.com/api/audit.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -465,36 +451,53 @@
         // 4) Extract the raw free audit text
         let raw = json.choices[0].message.content || 'No audit returned.';
 
-        // 5) Remove Markdown bold syntax (**text** → text)
+        // 5) Strip out Markdown bold (**text** → text)
         raw = raw.replace(/\*\*(.*?)\*\*/g, '$1');
 
         // 6) Show the free audit in the <div>, preserving line breaks
         reportContent.textContent = raw;
         reportDiv.classList.remove('hidden');
+
+        // 7) Create “Get Pro AI Audit ($49)” button if not already present
+        const existingBtn = document.getElementById('advBtn');
+        if (existingBtn) existingBtn.remove();
+
+        const advBtn = document.createElement('button');
+        advBtn.id = 'advBtn';
+        advBtn.textContent = 'Get Pro AI Audit ($49)';
+        advBtn.className = 'w-full bg-green-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2';
+        advBtn.addEventListener('click', getProAudit);
+        reportDiv.appendChild(advBtn);
+
       } catch (err) {
         reportContent.textContent = `Error: ${err.message}`;
         reportContent.classList.add('text-red-600');
         reportDiv.classList.remove('hidden');
       } finally {
-        // 7) Re-enable both buttons
+        // 8) Re‐enable buttons
         freeBtn.disabled = false;
-        proBtn.disabled = false;
+        proBtn.disabled  = false;
         freeBtn.classList.remove('opacity-50');
-        proBtn.classList.remove('opacity-50');
+        proBtn.classList .remove('opacity-50');
       }
     });
 
-    // When “Get Pro AI Audit ($49)” is clicked (either top or bottom)
-    function handleProClick(e) {
-      e.preventDefault();
-      freeBtn.disabled = true;
-      proBtn.disabled = true;
-      proBtnBelow.disabled = true;
+    // Handle “Get Pro AI Audit ($49)” click when user wants to bypass free step
+    proBtn.addEventListener('click', getProAudit);
 
-      // Re-collect values in case they changed
-      const email      = form.email.value.trim();
-      const subscribe  = form.newsletter.checked;
-      const answers    = {
+    async function getProAudit(e) {
+      e.preventDefault();
+
+      // Disable both buttons to prevent double-click
+      freeBtn.disabled = true;
+      proBtn.disabled  = true;
+      freeBtn.classList.add('opacity-50');
+      proBtn.classList .add('opacity-50');
+
+      // Re‐collect data
+      const email     = form.email.value.trim();
+      const subscribe = form.newsletter.checked;
+      const answers   = {
         businessType: form.businessType.value.trim(),
         scale:         form.scale.value.trim(),
         q1:            form.q1.value.trim(),
@@ -509,30 +512,23 @@
         q10:           form.q10.value.trim()
       };
 
-      // 8) Call “create-checkout-session” endpoint
-      fetch('https://api.aiauditpro.com/api/create-checkout-session.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, answers, subscribe })
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.url) {
-          window.location = data.url; // Redirect to Stripe Checkout
-        } else {
-          throw new Error('Checkout session failed');
-        }
-      })
-      .catch(err => {
+      try {
+        // Call “create-checkout-session” endpoint
+        const resp = await fetch('https://api.aiauditpro.com/api/create-checkout-session.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, answers, subscribe })
+        });
+        const { url } = await resp.json();
+        window.location = url; // Redirect to Stripe Checkout
+      } catch (err) {
         alert('Error initiating payment: ' + err.message);
         freeBtn.disabled = false;
-        proBtn.disabled = false;
-        proBtnBelow.disabled = false;
-      });
+        proBtn.disabled  = false;
+        freeBtn.classList.remove('opacity-50');
+        proBtn.classList .remove('opacity-50');
+      }
     }
-
-    proBtn.addEventListener('click', handleProClick);
-    proBtnBelow.addEventListener('click', handleProClick);
   </script>
 </body>
 </html>
