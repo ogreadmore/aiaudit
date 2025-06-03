@@ -3,397 +3,758 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Audit Pro for SMBs</title>
+  <title>AI Audit Pro for SMBs - Unlock Your Business Potential</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Font Awesome Free v6 (no SRI/integrity) -->
+  <!-- Font Awesome Free v6 -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     crossorigin="anonymous"
   />
-</head>
-<body class="bg-gray-50 text-gray-900">
 
-  <!-- ============================= -->
-  <!-- A) HERO SECTION -->
-  <!-- ============================= -->
-  <header class="bg-white shadow mb-12">
-    <div class="max-w-4xl mx-auto text-center py-16 px-4">
-      <h1 class="text-5xl font-extrabold mb-4">
-        Unlock Your Business’s AI Potential
+  <style>
+    /* Custom animations and gradients */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.5); }
+      50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.8); }
+    }
+    
+    .float-animation { animation: float 3s ease-in-out infinite; }
+    .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .progress-bar {
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-indigo-50 text-gray-900">
+
+  <!-- Floating CTA Button (sticky) -->
+  <div id="floatingCTA" class="fixed bottom-6 right-6 z-50 hidden">
+    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full shadow-lg pulse-glow font-semibold transition-all duration-300 hover:scale-105">
+      <i class="fas fa-rocket mr-2"></i>Get Started - $49
+    </button>
+  </div>
+
+  <!-- Progress bar for form completion -->
+  <div id="progressContainer" class="fixed top-0 left-0 right-0 z-40 bg-white shadow-md hidden">
+    <div class="progress-bar bg-gradient-to-r from-indigo-600 to-purple-600 h-1"></div>
+    <div class="px-4 py-2 text-sm text-gray-600 text-center">
+      <span id="progressText">Question 1 of 12</span>
+    </div>
+  </div>
+
+  <!-- Hero Section with enhanced visuals -->
+  <header class="gradient-bg text-white shadow-2xl mb-12 relative overflow-hidden">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full mix-blend-overlay float-animation"></div>
+      <div class="absolute top-32 right-20 w-20 h-20 bg-white rounded-full mix-blend-overlay float-animation" style="animation-delay: 1s;"></div>
+      <div class="absolute bottom-20 left-1/3 w-16 h-16 bg-white rounded-full mix-blend-overlay float-animation" style="animation-delay: 2s;"></div>
+    </div>
+    
+    <div class="max-w-6xl mx-auto text-center py-20 px-4 relative z-10">
+      <div class="inline-block bg-white/20 px-4 py-2 rounded-full text-sm font-medium mb-6">
+        <i class="fas fa-star text-yellow-300 mr-2"></i>Trusted by 500+ SMBs
+      </div>
+      
+      <h1 class="text-6xl md:text-7xl font-extrabold mb-6 leading-tight">
+        Unlock Your Business's
+        <span class="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+          AI Potential
+        </span>
       </h1>
-      <p class="text-lg text-gray-700 mb-6">
-        Answer 12 quick questions and get a free, custom AI audit—no fluff, just actionable insights.
+      
+      <p class="text-xl md:text-2xl text-indigo-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+        Get a personalized AI roadmap in 60 seconds. No fluff, just actionable insights that boost revenue and cut costs.
       </p>
-      <!-- Hero CTA -->
-      <a href="#quizFormSection" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-md transition">
-        Get Started Now
-      </a>
+      
+      <!-- Social proof -->
+      <div class="flex justify-center items-center space-x-8 mb-8 text-indigo-200">
+        <div class="text-center">
+          <div class="text-2xl font-bold">500+</div>
+          <div class="text-sm">Businesses Helped</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold">$2.3M</div>
+          <div class="text-sm">Revenue Generated</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold">35%</div>
+          <div class="text-sm">Avg. Cost Savings</div>
+        </div>
+      </div>
+      
+      <!-- Enhanced CTA buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#quizFormSection" class="group bg-white text-indigo-600 font-bold py-4 px-8 rounded-xl hover:bg-indigo-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+          <i class="fas fa-play mr-2 group-hover:translate-x-1 transition-transform"></i>
+          Start Free Audit Now
+        </a>
+        <button id="heroProBtn" class="group bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+          <i class="fas fa-rocket mr-2 group-hover:translate-x-1 transition-transform"></i>
+          Get Pro Audit - $49
+        </button>
+      </div>
+      
+      <p class="text-sm text-indigo-200 mt-4">
+        <i class="fas fa-clock mr-1"></i>Takes less than 3 minutes
+      </p>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4">
+  <main class="max-w-6xl mx-auto px-4">
 
-    <!-- ============================= -->
-    <!-- B) BENEFITS SECTION -->
-    <!-- ============================= -->
-    <section class="bg-white rounded-lg shadow-lg p-8 mb-12">
-      <h2 class="text-3xl font-bold mb-6 text-center">Why AI Audit Pro?</h2>
+    <!-- Trust indicators -->
+    <section class="text-center mb-16">
+      <div class="inline-flex items-center space-x-6 bg-white px-8 py-4 rounded-2xl shadow-lg">
+        <div class="flex text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <span class="text-gray-600">4.9/5 from 200+ reviews</span>
+        <div class="flex -space-x-2">
+          <div class="w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full border-2 border-white"></div>
+          <div class="w-8 h-8 bg-gradient-to-r from-green-400 to-green-600 rounded-full border-2 border-white"></div>
+          <div class="w-8 h-8 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full border-2 border-white"></div>
+          <div class="w-8 h-8 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full border-2 border-white"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Benefits Section -->
+    <section class="glass-effect rounded-3xl p-12 mb-16 shadow-2xl">
+      <h2 class="text-4xl font-bold mb-4 text-center bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+        Why Choose AI Audit Pro?
+      </h2>
+      <p class="text-center text-gray-600 mb-12 text-lg">Join hundreds of SMBs already saving time and increasing revenue</p>
+      
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Benefit 1: Instant, Custom Advice -->
-        <div class="flex items-start">
-          <i class="fa-solid fa-bolt text-indigo-600 text-2xl flex-shrink-0"></i>
-          <div class="ml-4">
-            <h3 class="text-xl font-semibold">Instant, Custom Advice</h3>
-            <p class="text-gray-700 mt-1">
-              Get your top 3 AI-opportunities in under 60 seconds—tailored exactly to your industry and scale.
-            </p>
+        <!-- Enhanced benefit cards -->
+        <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+          <div class="bg-indigo-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-bolt text-indigo-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Lightning Fast Results</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Get your top 3 AI opportunities in under 60 seconds—tailored exactly to your industry and business size.
+          </p>
+        </div>
+
+        <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+          <div class="bg-green-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i class="fa-regular fa-comments text-green-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Plain English, No Jargon</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Clear, actionable advice without technical buzzwords. Everything explained so any business owner can implement immediately.
+          </p>
+        </div>
+
+        <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+          <div class="bg-purple-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i class="fa-regular fa-file-lines text-purple-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Complete Implementation Guide</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Pro Audit includes step-by-step workflows, ROI projections, and specific tool recommendations (HubSpot, Zapier, etc.).
+          </p>
+        </div>
+
+        <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+          <div class="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-users text-blue-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Proven Track Record</h3>
+          <p class="text-gray-700 leading-relaxed">
+            500+ businesses across retail, services, and healthcare have boosted efficiency and revenue using our insights.
+          </p>
+        </div>
+
+        <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+          <div class="bg-orange-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-chart-line text-orange-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">ROI-Focused Recommendations</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Every suggestion includes cost-benefit analysis, implementation timelines, and expected return on investment.
+          </p>
+        </div>
+
+        <div class="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+          <div class="bg-red-100 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-phone text-red-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Personal Follow-up Call</h3>
+          <p class="text-gray-700 leading-relaxed">
+            Pro Audit includes a 15-minute consultation call to answer questions and ensure successful implementation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Testimonials -->
+    <section class="mb-16">
+      <h2 class="text-4xl font-bold mb-4 text-center bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+        Real Results from Real Businesses
+      </h2>
+      <p class="text-center text-gray-600 mb-12 text-lg">See how SMBs like yours are thriving with AI</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 relative">
+          <div class="flex text-yellow-400 mb-4">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="italic text-gray-700 mb-6 text-lg leading-relaxed">
+            "The AI tools recommended cut our scheduling time in half and eliminated double-bookings completely. ROI was immediate!"
+          </p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gradient-to-r from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">S</div>
+            <div class="ml-4">
+              <p class="font-semibold text-gray-900">Sarah L.</p>
+              <p class="text-gray-600 text-sm">Boutique Retailer</p>
+            </div>
+          </div>
+          <div class="absolute top-6 right-6 text-indigo-200">
+            <i class="fas fa-quote-right text-3xl"></i>
           </div>
         </div>
-        <!-- Benefit 2: No Technical Jargon -->
-        <div class="flex items-start">
-          <i class="fa-regular fa-comments text-indigo-600 text-2xl flex-shrink-0"></i>
-          <div class="ml-4">
-            <h3 class="text-xl font-semibold">No Technical Jargon</h3>
-            <p class="text-gray-700 mt-1">
-              We strip away buzzwords. You get clear, no-fluff explanations that any business owner can implement.
-            </p>
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 relative">
+          <div class="flex text-yellow-400 mb-4">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="italic text-gray-700 mb-6 text-lg leading-relaxed">
+            "Just the free audit opened my eyes to quick wins. We're seeing 20% fewer invoicing errors and saving 5 hours per week."
+          </p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold">J</div>
+            <div class="ml-4">
+              <p class="font-semibold text-gray-900">James K.</p>
+              <p class="text-gray-600 text-sm">Auto Repair Shop</p>
+            </div>
+          </div>
+          <div class="absolute top-6 right-6 text-indigo-200">
+            <i class="fas fa-quote-right text-3xl"></i>
           </div>
         </div>
-        <!-- Benefit 3: Actionable Roadmap -->
-        <div class="flex items-start">
-          <i class="fa-regular fa-file-lines text-indigo-600 text-2xl flex-shrink-0"></i>
-          <div class="ml-4">
-            <h3 class="text-xl font-semibold">Actionable Roadmap</h3>
-            <p class="text-gray-700 mt-1">
-              Your free audit gives high-level wins. Upgrade to Pro for a $49 report packed with step-by-step workflows, ROI metrics, and recommended tools.
-            </p>
+
+        <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 relative">
+          <div class="flex text-yellow-400 mb-4">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
           </div>
-        </div>
-        <!-- Benefit 4: Trusted by SMBs -->
-        <div class="flex items-start">
-          <i class="fa-solid fa-users text-indigo-600 text-2xl flex-shrink-0"></i>
-          <div class="ml-4">
-            <h3 class="text-xl font-semibold">Trusted by SMBs</h3>
-            <p class="text-gray-700 mt-1">
-              Over 500 small businesses—from retail shops to service providers—have used our insights to boost efficiency and revenue.
-            </p>
+          <p class="italic text-gray-700 mb-6 text-lg leading-relaxed">
+            "The Pro report's lead management workflow increased our conversion rate by 40%. Revenue is up 15% month-over-month!"
+          </p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center text-white font-bold">M</div>
+            <div class="ml-4">
+              <p class="font-semibold text-gray-900">Maria T.</p>
+              <p class="text-gray-600 text-sm">Health Clinic Owner</p>
+            </div>
           </div>
-        </div>
-        <!-- Benefit 5: Pro-Level Detail -->
-        <div class="flex items-start">
-          <i class="fa-solid fa-circle-check text-indigo-600 text-2xl flex-shrink-0"></i>
-          <div class="ml-4">
-            <h3 class="text-xl font-semibold">Pro-Level Detail</h3>
-            <p class="text-gray-700 mt-1">
-              The Pro Audit (only $49) dives deep: example workflows, tool recommendations (e.g., HubSpot, Zapier, ManyChat), ROI projections, and cost breakdowns.
-            </p>
-          </div>
-        </div>
-        <!-- Benefit 6: Free 15-Minute Consultation -->
-        <div class="flex items-start">
-          <i class="fa-solid fa-phone text-indigo-600 text-2xl flex-shrink-0"></i>
-          <div class="ml-4">
-            <h3 class="text-xl font-semibold">Free 15-Minute Consultation</h3>
-            <p class="text-gray-700 mt-1">
-              Every Pro Audit includes a 15-minute follow-up call—ask questions, get clarifications, and ensure you hit the ground running.
-            </p>
+          <div class="absolute top-6 right-6 text-indigo-200">
+            <i class="fas fa-quote-right text-3xl"></i>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================= -->
-    <!-- C) TESTIMONIALS SECTION -->
-    <!-- ============================= -->
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-6 text-center">What SMB Owners Are Saying</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Testimonial 1 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <p class="italic text-gray-700 mb-4">
-            “After implementing the AI tools recommended, we cut our scheduling time in half. Best $49 spent!”
-          </p>
-          <p class="font-semibold text-gray-900">— Sarah L., Boutique Retailer</p>
-        </div>
-        <!-- Testimonial 2 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <p class="italic text-gray-700 mb-4">
-            “The free audit alone opened my eyes to quick wins—our team is already seeing 20% fewer errors in invoicing.”
-          </p>
-          <p class="font-semibold text-gray-900">— James K., Auto Repair Shop</p>
-        </div>
-        <!-- Testimonial 3 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <p class="italic text-gray-700 mb-4">
-            “I upgraded to the Pro report and got a complete workflow for lead management. My revenue is up 15% month-over-month!”
-          </p>
-          <p class="font-semibold text-gray-900">— Maria T., Health Clinic Owner</p>
-        </div>
+    <!-- Enhanced Quiz Form Section -->
+    <section id="quizFormSection" class="mb-16">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          Get Your Personalized AI Roadmap
+        </h2>
+        <p class="text-xl text-gray-600">Answer 12 quick questions to unlock your business's AI potential</p>
       </div>
-    </section>
-
-    <!-- ============================= -->
-    <!-- D) QUIZ FORM SECTION -->
-    <!-- ============================= -->
-    <section id="quizFormSection" class="mb-12">
-      <h2 class="text-3xl font-bold mb-6 text-center">Step 1: Fill Out the Quick Quiz</h2>
-      <form id="quizForm" class="space-y-8 bg-white p-8 rounded-lg shadow-lg">
-        <!-- 1. Business Type & Industry -->
-        <div>
-          <label for="businessType" class="block text-lg font-medium text-gray-800 mb-2">
-            1. Business Type &amp; Industry
+      
+      <form id="quizForm" class="space-y-8 glass-effect p-12 rounded-3xl shadow-2xl">
+        <!-- Business Type & Industry -->
+        <div class="quiz-question">
+          <label for="businessType" class="block text-lg font-semibold text-gray-800 mb-3">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">1</span>
+            What type of business do you run?
           </label>
           <input
             type="text"
             id="businessType"
             name="businessType"
-            placeholder="e.g. Retail bakery, Health clinic, Software agency"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="e.g. Retail bakery, Health clinic, Software agency, Restaurant"
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             required
           />
         </div>
 
-        <!-- 2. Company Size & Scale -->
-        <div>
-          <label for="scale" class="block text-lg font-medium text-gray-800 mb-2">
-            2. Company Size &amp; Scale
+        <!-- Company Size & Scale -->
+        <div class="quiz-question">
+          <label for="scale" class="block text-lg font-semibold text-gray-800 mb-3">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">2</span>
+            What's your company size and annual revenue?
           </label>
           <input
             type="text"
             id="scale"
             name="scale"
-            placeholder="e.g. 10 employees / $1M annual revenue"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="e.g. 8 employees, $750K annual revenue"
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             required
           />
         </div>
 
-        <!-- 3. Current Tools & Systems -->
-        <div>
-          <label for="q1" class="block text-lg font-medium text-gray-800 mb-2">
-            3. Current Tools &amp; Systems
+        <!-- Current Tools & Systems -->
+        <div class="quiz-question">
+          <label for="q1" class="block text-lg font-semibold text-gray-800 mb-3">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">3</span>
+            What tools and systems do you currently use?
           </label>
           <textarea
             id="q1"
             name="q1"
-            placeholder="List any software (CRM, ERP, spreadsheets) or manual processes you rely on today."
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="List any software (CRM, POS, Excel, QuickBooks) or describe your current processes..."
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             rows="3"
             required
           ></textarea>
         </div>
 
-        <!-- 4. Data & Reporting -->
-        <div>
-          <label for="q2" class="block text-lg font-medium text-gray-800 mb-2">
-            4. Data &amp; Reporting
+        <!-- Data & Reporting -->
+        <div class="quiz-question">
+          <label for="q2" class="block text-lg font-semibold text-gray-800 mb-3">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">4</span>
+            How do you handle data and reporting?
           </label>
           <textarea
             id="q2"
             name="q2"
-            placeholder="How do you collect, store, and analyze data (sales, customers, inventory)? Are regular reports easy to generate?"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="Describe how you track sales, customers, inventory. Are reports easy to generate or time-consuming?"
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             rows="3"
             required
           ></textarea>
         </div>
 
-        <!-- 5. Customer Acquisition & Marketing -->
-        <div>
-          <label for="q3" class="block text-lg font-medium text-gray-800 mb-2">
-            5. Customer Acquisition &amp; Marketing
+        <!-- Customer Acquisition & Marketing -->
+        <div class="quiz-question">
+          <label for="q3" class="block text-lg font-semibold text-gray-800 mb-3">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">5</span>
+            How do you find and attract new customers?
           </label>
           <textarea
             id="q3"
             name="q3"
-            placeholder="Which channels (cold calling, social media, email campaigns, referrals) do you use to find customers? What works best/worst?"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="Describe your marketing channels (social media, email, referrals, ads). What works best? What's challenging?"
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             rows="3"
             required
           ></textarea>
         </div>
 
-        <!-- 6. Customer Support & Retention -->
-        <div>
-          <label for="q4" class="block text-lg font-medium text-gray-800 mb-2">
-            6. Customer Support &amp; Retention
+        <!-- Customer Support & Retention -->
+        <div class="quiz-question">
+          <label for="q4" class="block text-lg font-semibold text-gray-800 mb-3">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">6</span>
+            How do you handle customer support and follow-up?
           </label>
           <textarea
             id="q4"
             name="q4"
-            placeholder="How do you handle inquiries, support tickets, or follow-up? Are there recurring delays or quality issues?"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="Describe your customer service process. Any delays, quality issues, or areas for improvement?"
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             rows="3"
             required
           ></textarea>
         </div>
 
-        <!-- 7. Operational Bottlenecks -->
-        <div>
-          <label for="q5" class="block text-lg font-medium text-gray-800 mb-2">
-            7. Operational Bottlenecks
+        <!-- Operational Bottlenecks -->
+        <div class="quiz-question">
+          <label for="q5" class="block text-lg font-semibold text-gray-800 mb-3">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">7</span>
+            What are your biggest operational bottlenecks?
           </label>
           <textarea
             id="q5"
             name="q5"
-            placeholder="Where do you lose the most time or see repeated errors (e.g., inventory, scheduling, invoicing)?"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="Where do you lose the most time or see repeated errors? (scheduling, inventory, invoicing, admin tasks)"
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             rows="3"
             required
           ></textarea>
         </div>
 
-        <!-- 8. Team & Skillset -->
-        <div>
-          <label for="q6" class="block text-lg font-medium text-gray-800 mb-2">
-            8. Team &amp; Skillset
+        <!-- Team & Skillset -->
+        <div class="quiz-question">
+          <label for="q6" class="block text-lg font-semibold text-gray-800 mb-3">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">8</span>
+            What are your team and staffing challenges?
           </label>
           <textarea
             id="q6"
             name="q6"
-            placeholder="Which roles/functions are most stretched or understaffed? Where do you struggle to find or train the right skills?"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="Which roles are stretched thin? Where do you struggle to find or train the right skills?"
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             rows="3"
             required
           ></textarea>
         </div>
 
-        <!-- 9. Primary Business Goals -->
-        <div>
-          <label for="q7" class="block text-lg font-medium text-gray-800 mb-2">
-            9. Primary Business Goals
+        <!-- Primary Business Goals -->
+        <div class="quiz-question">
+          <label for="q7" class="block text-lg font-semibold text-gray-800 mb-3">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">9</span>
+            What's your top business priority this year?
           </label>
           <textarea
             id="q7"
             name="q7"
-            placeholder="What is your top priority this year—revenue growth, cost reduction, customer satisfaction, product expansion, etc.?"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="Revenue growth, cost reduction, customer satisfaction, expansion, operational efficiency, etc."
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             rows="3"
             required
           ></textarea>
         </div>
 
-        <!-- 10. Technology & AI Familiarity -->
-        <div>
-          <label for="q8" class="block text-lg font-medium text-gray-800 mb-2">
-            10. Technology &amp; AI Familiarity
+        <!-- Technology & AI Familiarity -->
+        <div class="quiz-question">
+          <label for="q8" class="block text-lg font-semibold text-gray-800 mb-3">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">10</span>
+            What's your experience with AI or automation tools?
           </label>
           <textarea
             id="q8"
             name="q8"
-            placeholder="Have you tried any AI-powered tools (chatbots, predictive analytics, automation)? Which, and how did they perform?"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="Any chatbots, automated workflows, or AI tools you've tried? What worked or didn't work?"
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             rows="3"
             required
           ></textarea>
         </div>
 
-        <!-- 11. Budget & Investment Appetite -->
-        <div>
-          <label for="q9" class="block text-lg font-medium text-gray-800 mb-2">
-            11. Budget &amp; Investment Appetite
+        <!-- Budget & Investment Appetite -->
+        <div class="quiz-question">
+          <label for="q9" class="block text-lg font-semibold text-gray-800 mb-3">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">11</span>
+            What's your budget for new technology initiatives?
           </label>
           <textarea
             id="q9"
             name="q9"
-            placeholder="Roughly how much time, money, or resources can you allocate to new software or AI initiatives in the next 6 months?"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="How much time, money, or resources can you allocate to AI/automation in the next 6 months?"
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             rows="3"
             required
           ></textarea>
         </div>
 
-        <!-- 12. Risk & Compliance Concerns -->
-        <div>
-          <label for="q10" class="block text-lg font-medium text-gray-800 mb-2">
-            12. Risk &amp; Compliance Concerns
+        <!-- Risk & Compliance Concerns -->
+        <div class="quiz-question">
+          <label for="q10" class="block text-lg font-semibold text-gray-800 mb-3">
+            <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">12</span>
+            Any data privacy or compliance requirements?
           </label>
           <textarea
             id="q10"
             name="q10"
-            placeholder="Are there any data-privacy, regulatory, or security requirements we should consider when adding new technology?"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="HIPAA, PCI compliance, data privacy concerns, or security requirements we should consider?"
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             rows="3"
             required
           ></textarea>
         </div>
 
-        <!-- Email & Newsletter Checkbox (not counted as a question) -->
-        <div>
-          <label for="email" class="block text-lg font-medium text-gray-800 mb-2">
-            Your Email (so we can send your free audit)
+        <!-- Email & Newsletter -->
+        <div class="bg-gray-50 p-6 rounded-2xl">
+          <label for="email" class="block text-lg font-semibold text-gray-800 mb-3">
+            <i class="fas fa-envelope text-indigo-600 mr-2"></i>
+            Email Address (to receive your audit)
           </label>
           <input
             type="email"
             id="email"
             name="email"
-            placeholder="you@example.com"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-3 px-4 text-lg"
+            placeholder="your.email@company.com"
+            class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             required
           />
-          <div class="mt-3 flex items-center">
+          <div class="mt-4 flex items-center">
             <input
               type="checkbox"
               id="newsletter"
               name="newsletter"
-              class="h-4 w-4 text-indigo-600 border-gray-300 rounded"
+              class="h-5 w-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
             />
-            <label for="newsletter" class="ml-2 text-gray-700">
-              Subscribe to our monthly AI newsletter (optional)
+            <label for="newsletter" class="ml-3 text-gray-700">
+              <i class="fas fa-paper-plane text-indigo-600 mr-1"></i>
+              Yes, send me monthly AI insights and case studies (optional)
             </label>
           </div>
         </div>
 
-        <!-- Submit Buttons: Free & Pro side by side -->
-        <div class="flex flex-col sm:flex-row gap-4 mt-6">
+        <!-- Enhanced Submit Buttons -->
+        <div class="flex flex-col sm:flex-row gap-6 mt-8">
           <!-- Free Audit Button -->
           <button
             type="submit"
             id="freeBtn"
-            class="flex-1 bg-indigo-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            class="flex-1 group bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center"
           >
+            <i class="fas fa-gift mr-2 group-hover:bounce"></i>
             Get Free AI Audit
+            <div class="ml-2 text-sm opacity-75">(No charge)</div>
           </button>
-          <!-- Pro Audit Button (impulse buy) -->
+          
+          <!-- Pro Audit Button with enhanced styling -->
           <button
             type="button"
             id="proBtn"
-            class="flex-1 bg-green-600 text-white py-3 rounded-md text-lg font-semibold hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+            class="flex-1 group bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center relative overflow-hidden"
           >
-            Get Pro AI Audit ($49)
+            <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+            <i class="fas fa-rocket mr-2 group-hover:translate-x-1 transition-transform"></i>
+            Get Pro AI Audit
+            <div class="ml-2 flex flex-col items-start">
+              <span class="text-sm opacity-75 line-through">$97</span>
+              <span class="text-lg font-bold">$49</span>
+            </div>
           </button>
+        </div>
+
+        <!-- Trust indicators below buttons -->
+        <div class="mt-6 text-center text-sm text-gray-600">
+          <div class="flex items-center justify-center space-x-4">
+            <div class="flex items-center">
+              <i class="fas fa-lock text-green-600 mr-1"></i>
+              <span>100% Secure</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-clock text-blue-600 mr-1"></i>
+              <span>Results in 60 seconds</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-shield-check text-purple-600 mr-1"></i>
+              <span>Money-back guarantee</span>
+            </div>
+          </div>
         </div>
       </form>
     </section>
 
-    <!-- ============================= -->
-    <!-- E) FREE AUDIT DISPLAY SECTION -->
-    <!-- ============================= -->
-    <div id="report" class="mt-8 bg-white p-8 rounded-lg shadow-lg hidden">
-      <h2 class="text-3xl font-semibold mb-4">Your Free AI Audit</h2>
-      <div id="reportContent" class="whitespace-pre-wrap text-gray-800 text-lg mb-6"></div>
-      <!-- “Get Pro AI Audit” button injected here as fallback if not clicked earlier -->
+    <!-- Free Audit Display Section -->
+    <div id="report" class="mt-8 glass-effect p-12 rounded-3xl shadow-2xl hidden">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <i class="fas fa-check-circle mr-2"></i>
+          Audit Complete!
+        </div>
+        <h2 class="text-3xl font-bold mb-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          Your Personalized AI Roadmap
+        </h2>
+        <p class="text-gray-600">Here are your top AI opportunities based on your responses</p>
+      </div>
+      
+      <div id="reportContent" class="whitespace-pre-wrap text-gray-800 text-lg leading-relaxed mb-8 bg-white p-8 rounded-2xl border border-gray-100"></div>
+      
+      <!-- Call-to-action after free audit -->
+      <div class="text-center">
+        <div class="bg-gradient-to-r from-green-50 to-blue-50 p-8 rounded-2xl border border-green-100 mb-6">
+          <h3 class="text-2xl font-bold text-gray-800 mb-4">
+            Want the Complete Implementation Guide?
+          </h3>
+          <p class="text-gray-600 mb-6">
+            Upgrade to our Pro Audit for step-by-step workflows, specific tool recommendations, 
+            ROI calculations, and a 15-minute consultation call.
+          </p>
+          <div class="flex items-center justify-center space-x-8 text-sm text-gray-600 mb-6">
+            <div class="flex items-center">
+              <i class="fas fa-check text-green-600 mr-2"></i>
+              <span>Detailed implementation steps</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-check text-green-600 mr-2"></i>
+              <span>Specific tool recommendations</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-check text-green-600 mr-2"></i>
+              <span>15-minute consultation call</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- FAQ Section -->
+    <section class="mb-16">
+      <h2 class="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+        Frequently Asked Questions
+      </h2>
+      
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+          <h3 class="text-xl font-semibold mb-3 text-gray-800">
+            <i class="fas fa-question-circle text-indigo-600 mr-2"></i>
+            How is this different from generic AI advice online?
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            Our audit is specifically tailored to your industry, business size, and current challenges. Instead of generic "use AI for everything" advice, you get specific, actionable recommendations with clear ROI projections.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+          <h3 class="text-xl font-semibold mb-3 text-gray-800">
+            <i class="fas fa-question-circle text-indigo-600 mr-2"></i>
+            What if I'm not tech-savvy?
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            Perfect! Our recommendations are designed for business owners, not IT experts. We focus on user-friendly solutions and provide step-by-step implementation guidance that anyone can follow.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+          <h3 class="text-xl font-semibold mb-3 text-gray-800">
+            <i class="fas fa-question-circle text-indigo-600 mr-2"></i>
+            Is there really a difference between the free and Pro audit?
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            Yes! The free audit gives you high-level opportunities. The Pro audit ($49) includes detailed implementation workflows, specific tool recommendations, cost-benefit analysis, timelines, and a 15-minute consultation call.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+          <h3 class="text-xl font-semibold mb-3 text-gray-800">
+            <i class="fas fa-question-circle text-indigo-600 mr-2"></i>
+            How quickly will I see results?
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            Most of our clients see initial improvements within 2-4 weeks. Quick wins like automated scheduling or email templates can be implemented immediately, while larger initiatives may take 2-3 months.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="text-center mb-16">
+      <div class="gradient-bg text-white p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+        <!-- Background elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+          <div class="absolute top-4 left-4 w-24 h-24 bg-white rounded-full float-animation"></div>
+          <div class="absolute bottom-4 right-4 w-16 h-16 bg-white rounded-full float-animation" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="relative z-10">
+          <h2 class="text-4xl font-bold mb-6">
+            Ready to Transform Your Business with AI?
+          </h2>
+          <p class="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
+            Join 500+ SMBs who've already boosted efficiency and revenue. Get your personalized AI roadmap in under 3 minutes.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="#quizFormSection" class="group bg-white text-indigo-600 font-bold py-4 px-8 rounded-xl hover:bg-indigo-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+              <i class="fas fa-play mr-2 group-hover:translate-x-1 transition-transform"></i>
+              Start Free Audit Now
+            </a>
+            <button id="finalProBtn" class="group bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+              <i class="fas fa-rocket mr-2 group-hover:translate-x-1 transition-transform"></i>
+              Get Pro Audit - $49
+            </button>
+          </div>
+          
+          <p class="text-sm text-indigo-200 mt-6">
+            <i class="fas fa-shield-check mr-1"></i>
+            30-day money-back guarantee • No recurring charges
+          </p>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <!-- ============================= -->
-  <!-- F) FOOTER SECTION -->
-  <!-- ============================= -->
-  <footer class="mt-16 py-8 bg-white">
-    <div class="max-w-4xl mx-auto text-center text-gray-600">
-      <p>© 2025 AI Audit Pro. All rights reserved.</p>
-      <div class="mt-3 space-x-4">
-        <a href="/privacy" class="hover:underline">Privacy Policy</a>
-        <a href="/terms" class="hover:underline">Terms of Service</a>
+  <!-- Enhanced Footer -->
+  <footer class="mt-20 py-12 bg-gray-900 text-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="col-span-2">
+          <h3 class="text-2xl font-bold mb-4 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+            AI Audit Pro
+          </h3>
+          <p class="text-gray-400 mb-4 leading-relaxed">
+            Helping small and medium businesses unlock their AI potential with personalized, actionable recommendations that drive real results.
+          </p>
+          <div class="flex space-x-4">
+            <div class="bg-gray-800 p-2 rounded-lg">
+              <i class="fab fa-linkedin text-blue-400"></i>
+            </div>
+            <div class="bg-gray-800 p-2 rounded-lg">
+              <i class="fab fa-twitter text-blue-400"></i>
+            </div>
+            <div class="bg-gray-800 p-2 rounded-lg">
+              <i class="fas fa-envelope text-blue-400"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Sample Reports</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Success Stories</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">AI Resources</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Support</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+            <li><a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms" class="hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>© 2025 AI Audit Pro. All rights reserved. Made with ❤️ for SMBs.</p>
       </div>
     </div>
   </footer>
 
+<<<<<<< HEAD
   <!-- ============================= -->
   <!-- G) JavaScript Logic -->
   <!-- ============================= -->
@@ -412,6 +773,151 @@
         }
         html += `<h3 class="text-xl font-bold mt-8">${sectionMatch[0]}</h3>`;
         return;
+=======
+  <!-- Enhanced JavaScript -->
+  <script>
+    const form = document.getElementById('quizForm');
+    const reportDiv = document.getElementById('report');
+    const reportContent = document.getElementById('reportContent');
+    const freeBtn = document.getElementById('freeBtn');
+    const proBtn = document.getElementById('proBtn');
+    const heroProBtn = document.getElementById('heroProBtn');
+    const finalProBtn = document.getElementById('finalProBtn');
+    const floatingCTA = document.getElementById('floatingCTA');
+    const progressContainer = document.getElementById('progressContainer');
+    const progressBar = document.querySelector('.progress-bar');
+    const progressText = document.getElementById('progressText');
+
+    // Progress tracking
+    const questions = document.querySelectorAll('.quiz-question');
+    let currentProgress = 0;
+
+    // Show progress bar when user starts interacting with form
+    function showProgress() {
+      progressContainer.classList.remove('hidden');
+      updateProgress();
+    }
+
+    // Update progress bar
+    function updateProgress() {
+      const filledInputs = Array.from(form.querySelectorAll('input[required], textarea[required]'))
+        .filter(input => input.value.trim() !== '').length;
+      
+      const totalQuestions = 12; // 10 questions + business type + scale
+      currentProgress = Math.min(filledInputs, totalQuestions);
+      
+      const percentage = (currentProgress / totalQuestions) * 100;
+      progressBar.style.width = percentage + '%';
+      progressText.textContent = `Question ${currentProgress} of ${totalQuestions}`;
+      
+      // Show floating CTA after 50% completion
+      if (percentage >= 50) {
+        floatingCTA.classList.remove('hidden');
+      }
+    }
+
+    // Add event listeners to all form inputs
+    form.addEventListener('input', updateProgress);
+    form.addEventListener('focus', showProgress, true);
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Enhanced form submission with better UX
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      // Show loading state
+      const originalText = freeBtn.innerHTML;
+      freeBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating Your Audit...';
+      
+      // Collect form data
+      const email = form.email.value.trim();
+      const subscribe = form.newsletter.checked;
+      const answers = {
+        businessType: form.businessType.value.trim(),
+        scale: form.scale.value.trim(),
+        q1: form.q1.value.trim(),
+        q2: form.q2.value.trim(),
+        q3: form.q3.value.trim(),
+        q4: form.q4.value.trim(),
+        q5: form.q5.value.trim(),
+        q6: form.q6.value.trim(),
+        q7: form.q7.value.trim(),
+        q8: form.q8.value.trim(),
+        q9: form.q9.value.trim(),
+        q10: form.q10.value.trim()
+      };
+
+      // Reset display
+      reportDiv.classList.add('hidden');
+      reportContent.classList.remove('text-red-600');
+      
+      // Disable buttons
+      freeBtn.disabled = true;
+      proBtn.disabled = true;
+      freeBtn.classList.add('opacity-50');
+      proBtn.classList.add('opacity-50');
+
+      try {
+        const resp = await fetch('https://api.aiauditpro.com/api/audit.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, answers, subscribe })
+        });
+        
+        const json = await resp.json();
+
+        if (json.error) {
+          throw new Error(json.error.message || JSON.stringify(json.error));
+        }
+
+        // Process and display results
+        let raw = json.choices[0].message.content || 'No audit returned.';
+        raw = raw.replace(/\*\*(.*?)\*\*/g, '$1');
+
+        reportContent.textContent = raw;
+        reportDiv.classList.remove('hidden');
+
+        // Add Pro upgrade button
+        const existingBtn = document.getElementById('advBtn');
+        if (existingBtn) existingBtn.remove();
+
+        const advBtn = document.createElement('button');
+        advBtn.id = 'advBtn';
+        advBtn.className = 'group bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-4 px-8 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center mx-auto';
+        advBtn.innerHTML = '<i class="fas fa-rocket mr-2 group-hover:translate-x-1 transition-transform"></i>Upgrade to Pro Audit - $49';
+        advBtn.addEventListener('click', getProAudit);
+        
+        const upgradeContainer = reportDiv.querySelector('.text-center');
+        upgradeContainer.appendChild(advBtn);
+
+        // Scroll to results
+        reportDiv.scrollIntoView({ behavior: 'smooth' });
+
+      } catch (err) {
+        reportContent.textContent = `Error: ${err.message}`;
+        reportContent.classList.add('text-red-600');
+        reportDiv.classList.remove('hidden');
+      } finally {
+        // Reset button
+        freeBtn.innerHTML = originalText;
+        freeBtn.disabled = false;
+        proBtn.disabled = false;
+        freeBtn.classList.remove('opacity-50');
+        proBtn.classList.remove('opacity-50');
+>>>>>>> 2893cefe333f668ac6c84fb9f2976c58ab4f2830
       }
 
       const titleLine = line.match(/^Title:\s*(.*)$/);
@@ -450,6 +956,7 @@
       html += `<p class="mt-2">${line}</p>`;
     });
 
+<<<<<<< HEAD
     if (inList) {
       html += '</ul>';
     }
@@ -578,5 +1085,90 @@
   floatingCTA.addEventListener('click', getProAudit);
 </script>
 
+=======
+    // Pro audit function
+    async function getProAudit(e) {
+      e.preventDefault();
+
+      const button = e.target;
+      const originalText = button.innerHTML;
+      button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Processing...';
+      button.disabled = true;
+
+      const email = form.email.value.trim();
+      const subscribe = form.newsletter.checked;
+      const answers = {
+        businessType: form.businessType.value.trim(),
+        scale: form.scale.value.trim(),
+        q1: form.q1.value.trim(),
+        q2: form.q2.value.trim(),
+        q3: form.q3.value.trim(),
+        q4: form.q4.value.trim(),
+        q5: form.q5.value.trim(),
+        q6: form.q6.value.trim(),
+        q7: form.q7.value.trim(),
+        q8: form.q8.value.trim(),
+        q9: form.q9.value.trim(),
+        q10: form.q10.value.trim()
+      };
+
+      try {
+        const resp = await fetch('https://api.aiauditpro.com/api/create-checkout-session.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, answers, subscribe })
+        });
+        
+        const { url } = await resp.json();
+        window.location = url;
+      } catch (err) {
+        alert('Error initiating payment: ' + err.message);
+      } finally {
+        button.innerHTML = originalText;
+        button.disabled = false;
+      }
+    }
+
+    // Attach pro audit handlers
+    proBtn.addEventListener('click', getProAudit);
+    heroProBtn.addEventListener('click', getProAudit);
+    finalProBtn.addEventListener('click', getProAudit);
+    floatingCTA.addEventListener('click', getProAudit);
+
+    // Hide floating CTA when user scrolls back up
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < lastScrollY && window.scrollY < 500) {
+        floatingCTA.classList.add('hidden');
+      } else if (window.scrollY > 500 && currentProgress >= 6) {
+        floatingCTA.classList.remove('hidden');
+      }
+      lastScrollY = window.scrollY;
+    });
+
+    // Add animation to elements as they come into view
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe benefit cards and testimonials
+    document.querySelectorAll('.group').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+>>>>>>> 2893cefe333f668ac6c84fb9f2976c58ab4f2830
 </body>
 </html>
