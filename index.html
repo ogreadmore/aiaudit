@@ -21,25 +21,20 @@
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
     }
-    
     @keyframes pulse-glow {
       0%, 100% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.5); }
       50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.8); }
     }
-    
     .float-animation { animation: float 3s ease-in-out infinite; }
     .pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
-    
     .gradient-bg {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
-    
     .glass-effect {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
-    
     .progress-bar {
       width: 0%;
       transition: width 0.3s ease;
@@ -304,7 +299,7 @@
       </div>
       
       <form id="quizForm" class="space-y-8 glass-effect p-12 rounded-3xl shadow-2xl">
-        <!-- Business Type & Industry -->
+        <!-- 1. Business Type & Industry -->
         <div class="quiz-question">
           <label for="businessType" class="block text-lg font-semibold text-gray-800 mb-3">
             <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">1</span>
@@ -318,9 +313,9 @@
             class="mt-2 block w-full rounded-xl border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 py-4 px-6 text-lg transition-all duration-300 hover:shadow-md"
             required
           />
-        </div> 
+        </div>
 
-        <!-- Company Size & Scale -->
+        <!-- 2. Company Size & Scale -->
         <div class="quiz-question">
           <label for="scale" class="block text-lg font-semibold text-gray-800 mb-3">
             <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">2</span>
@@ -336,7 +331,7 @@
           />
         </div>
 
-        <!-- Current Tools & Systems -->
+        <!-- 3. Current Tools & Systems -->
         <div class="quiz-question">
           <label for="q1" class="block text-lg font-semibold text-gray-800 mb-3">
             <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">3</span>
@@ -352,7 +347,7 @@
           ></textarea>
         </div>
 
-        <!-- Data & Reporting -->
+        <!-- 4. Data & Reporting -->
         <div class="quiz-question">
           <label for="q2" class="block text-lg font-semibold text-gray-800 mb-3">
             <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">4</span>
@@ -368,7 +363,7 @@
           ></textarea>
         </div>
 
-        <!-- Customer Acquisition & Marketing -->
+        <!-- 5. Customer Acquisition & Marketing -->
         <div class="quiz-question">
           <label for="q3" class="block text-lg font-semibold text-gray-800 mb-3">
             <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">5</span>
@@ -384,7 +379,7 @@
           ></textarea>
         </div>
 
-        <!-- Customer Support & Retention -->
+        <!-- 6. Customer Support & Retention -->
         <div class="quiz-question">
           <label for="q4" class="block text-lg font-semibold text-gray-800 mb-3">
             <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">6</span>
@@ -400,7 +395,7 @@
           ></textarea>
         </div>
 
-        <!-- Operational Bottlenecks -->
+        <!-- 7. Operational Bottlenecks -->
         <div class="quiz-question">
           <label for="q5" class="block text-lg font-semibold text-gray-800 mb-3">
             <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">7</span>
@@ -416,7 +411,7 @@
           ></textarea>
         </div>
 
-        <!-- Team & Skillset -->
+        <!-- 8. Team & Skillset -->
         <div class="quiz-question">
           <label for="q6" class="block text-lg font-semibold text-gray-800 mb-3">
             <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">8</span>
@@ -432,7 +427,7 @@
           ></textarea>
         </div>
 
-        <!-- Primary Business Goals -->
+        <!-- 9. Primary Business Goals -->
         <div class="quiz-question">
           <label for="q7" class="block text-lg font-semibold text-gray-800 mb-3">
             <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">9</span>
@@ -448,7 +443,7 @@
           ></textarea>
         </div>
 
-        <!-- Technology & AI Familiarity -->
+        <!-- 10. Technology & AI Familiarity -->
         <div class="quiz-question">
           <label for="q8" class="block text-lg font-semibold text-gray-800 mb-3">
             <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">10</span>
@@ -464,7 +459,7 @@
           ></textarea>
         </div>
 
-        <!-- Budget & Investment Appetite -->
+        <!-- 11. Budget & Investment Appetite -->
         <div class="quiz-question">
           <label for="q9" class="block text-lg font-semibold text-gray-800 mb-3">
             <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">11</span>
@@ -480,7 +475,7 @@
           ></textarea>
         </div>
 
-        <!-- Risk & Compliance Concerns -->
+        <!-- 12. Risk & Compliance Concerns -->
         <div class="quiz-question">
           <label for="q10" class="block text-lg font-semibold text-gray-800 mb-3">
             <span class="bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-medium mr-3">12</span>
@@ -536,7 +531,7 @@
             Get Free AI Audit
             <div class="ml-2 text-sm opacity-75">(No charge)</div>
           </button>
-          
+
           <!-- Pro Audit Button with enhanced styling -->
           <button
             type="button"
@@ -754,28 +749,78 @@
     </div>
   </footer>
 
-<<<<<<< HEAD
   <!-- ============================= -->
   <!-- G) JavaScript Logic -->
   <!-- ============================= -->
-<script>
-  function formatFreeAudit(raw) {
-    const lines = raw.split('\n');
-    let html = '';
-    let inList = false;
-
-    lines.forEach(line => {
-      const sectionMatch = line.match(/^(\d+)\.\s+(.*)$/);
-      if (sectionMatch) {
-        if (inList) {
-          html += '</ul>';
-          inList = false;
-        }
-        html += `<h3 class="text-xl font-bold mt-8">${sectionMatch[0]}</h3>`;
-        return;
-=======
-  <!-- Enhanced JavaScript -->
   <script>
+    // This helper takes the raw Free Audit text and converts it into nicely formatted HTML.
+    function formatFreeAudit(raw) {
+      const lines = raw.split('\n');
+      let html = '';
+      let inList = false;
+
+      lines.forEach(line => {
+        // Detect numbered section headers like "1. AI-Enhanced Lead Generation..."
+        const sectionMatch = line.match(/^(\d+)\.\s+(.*)$/);
+        if (sectionMatch) {
+          if (inList) {
+            html += '</ul>';
+            inList = false;
+          }
+          html += `<h3 class="text-xl font-bold mt-8">${sectionMatch[0]}</h3>`;
+          return;
+        }
+
+        // Detect "Title: …" lines
+        const titleLine = line.match(/^Title:\s*(.*)$/);
+        if (titleLine) {
+          html += `<h4 class="text-lg font-semibold mt-3">${titleLine[1]}</h4>`;
+          return;
+        }
+
+        // Detect "Product/Tool: …" lines
+        const toolLine = line.match(/^Product\/Tool:\s*(.*)$/);
+        if (toolLine) {
+          html += `<p class="italic mb-2">Tool: ${toolLine[1]}</p>`;
+          return;
+        }
+
+        // Detect the start of an action list
+        if (/^Action steps:/.test(line)) {
+          html += `<p class="font-semibold mt-4 mb-1">Action steps:</p>`;
+          html += '<ul class="list-disc list-inside ml-6 mb-4">';
+          inList = true;
+          return;
+        }
+
+        // Detect bullet items (lines beginning with "- ")
+        if (/^-\s+/.test(line) && inList) {
+          const itemText = line.replace(/^-+\s*/, '');
+          html += `<li class="mb-1">${itemText}</li>`;
+          return;
+        }
+
+        // If we reach a blank line, close any open list
+        if (line.trim() === '') {
+          if (inList) {
+            html += '</ul>';
+            inList = false;
+          }
+          return;
+        }
+
+        // Otherwise, render as a normal paragraph
+        html += `<p class="mt-2">${line}</p>`;
+      });
+
+      // Close any lingering list
+      if (inList) {
+        html += '</ul>';
+      }
+      return html;
+    }
+
+    // Grab references to key DOM elements
     const form = document.getElementById('quizForm');
     const reportDiv = document.getElementById('report');
     const reportContent = document.getElementById('reportContent');
@@ -788,39 +833,38 @@
     const progressBar = document.querySelector('.progress-bar');
     const progressText = document.getElementById('progressText');
 
-    // Progress tracking
-    const questions = document.querySelectorAll('.quiz-question');
+    // Track progress (how many required fields have content)
     let currentProgress = 0;
 
-    // Show progress bar when user starts interacting with form
     function showProgress() {
       progressContainer.classList.remove('hidden');
       updateProgress();
     }
 
-    // Update progress bar
     function updateProgress() {
-      const filledInputs = Array.from(form.querySelectorAll('input[required], textarea[required]'))
-        .filter(input => input.value.trim() !== '').length;
-      
-      const totalQuestions = 12; // 10 questions + business type + scale
+      // Count all required inputs/textareas that are non-empty
+      const filledInputs = Array.from(
+        form.querySelectorAll('input[required], textarea[required]')
+      ).filter(input => input.value.trim() !== '').length;
+
+      const totalQuestions = 12; // 12 required questions (excluding email/newsletter)
       currentProgress = Math.min(filledInputs, totalQuestions);
-      
+
       const percentage = (currentProgress / totalQuestions) * 100;
       progressBar.style.width = percentage + '%';
       progressText.textContent = `Question ${currentProgress} of ${totalQuestions}`;
-      
-      // Show floating CTA after 50% completion
+
+      // Show floating CTA if at least half the form is filled
       if (percentage >= 50) {
         floatingCTA.classList.remove('hidden');
       }
     }
 
-    // Add event listeners to all form inputs
+    // Attach listeners to form fields to update progress
     form.addEventListener('input', updateProgress);
     form.addEventListener('focus', showProgress, true);
 
-    // Smooth scrolling for anchor links
+    // Smooth‐scroll behavior for any in‐page anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -834,282 +878,108 @@
       });
     });
 
-    // Enhanced form submission with better UX
+    // Handle free‐audit form submission
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      // Show loading state
-      const originalText = freeBtn.innerHTML;
+      // Swap button text to a loading spinner
+      const originalFreeText = freeBtn.innerHTML;
       freeBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating Your Audit...';
-      
-      // Collect form data
+      freeBtn.disabled = true;
+      proBtn.disabled = true;
+
+      // Collect email + answers + newsletter flag
       const email = form.email.value.trim();
       const subscribe = form.newsletter.checked;
       const answers = {
         businessType: form.businessType.value.trim(),
-        scale: form.scale.value.trim(),
-        q1: form.q1.value.trim(),
-        q2: form.q2.value.trim(),
-        q3: form.q3.value.trim(),
-        q4: form.q4.value.trim(),
-        q5: form.q5.value.trim(),
-        q6: form.q6.value.trim(),
-        q7: form.q7.value.trim(),
-        q8: form.q8.value.trim(),
-        q9: form.q9.value.trim(),
-        q10: form.q10.value.trim()
+        scale:         form.scale.value.trim(),
+        q1:            form.q1.value.trim(),
+        q2:            form.q2.value.trim(),
+        q3:            form.q3.value.trim(),
+        q4:            form.q4.value.trim(),
+        q5:            form.q5.value.trim(),
+        q6:            form.q6.value.trim(),
+        q7:            form.q7.value.trim(),
+        q8:            form.q8.value.trim(),
+        q9:            form.q9.value.trim(),
+        q10:           form.q10.value.trim()
       };
 
-      // Reset display
+      // Hide previous results if visible
       reportDiv.classList.add('hidden');
       reportContent.classList.remove('text-red-600');
-      
-      // Disable buttons
-      freeBtn.disabled = true;
-      proBtn.disabled = true;
-      freeBtn.classList.add('opacity-50');
-      proBtn.classList.add('opacity-50');
 
       try {
+        // Call the free‐audit endpoint
         const resp = await fetch('https://api.aiauditpro.com/api/audit.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, answers, subscribe })
         });
-        
         const json = await resp.json();
-
         if (json.error) {
           throw new Error(json.error.message || JSON.stringify(json.error));
         }
 
-        // Process and display results
+        // Strip out any Markdown bold markers
         let raw = json.choices[0].message.content || 'No audit returned.';
         raw = raw.replace(/\*\*(.*?)\*\*/g, '$1');
 
-        reportContent.textContent = raw;
+        // Convert the raw text into formatted HTML
+        const html = formatFreeAudit(raw);
+        reportContent.innerHTML = html;
         reportDiv.classList.remove('hidden');
-
-        // Add Pro upgrade button
-        const existingBtn = document.getElementById('advBtn');
-        if (existingBtn) existingBtn.remove();
-
-        const advBtn = document.createElement('button');
-        advBtn.id = 'advBtn';
-        advBtn.className = 'group bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-4 px-8 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center mx-auto';
-        advBtn.innerHTML = '<i class="fas fa-rocket mr-2 group-hover:translate-x-1 transition-transform"></i>Upgrade to Pro Audit - $49';
-        advBtn.addEventListener('click', getProAudit);
-        
-        const upgradeContainer = reportDiv.querySelector('.text-center');
-        upgradeContainer.appendChild(advBtn);
-
-        // Scroll to results
         reportDiv.scrollIntoView({ behavior: 'smooth' });
 
-      } catch (err) {
-        reportContent.textContent = `Error: ${err.message}`;
-        reportContent.classList.add('text-red-600');
+        // Add the “Upgrade to Pro” button if not already present
+        if (!document.getElementById('advBtn')) {
+          const advBtn = document.createElement('button');
+          advBtn.id = 'advBtn';
+          advBtn.className =
+            'group bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 ' +
+            'text-white py-4 px-8 rounded-xl text-lg font-semibold transition-all duration-300 ' +
+            'shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center mx-auto';
+          advBtn.innerHTML = '<i class="fas fa-rocket mr-2 group-hover:translate-x-1 transition-transform"></i>Upgrade to Pro Audit - $49';
+          advBtn.addEventListener('click', getProAudit);
+          reportDiv.appendChild(advBtn);
+        }
+      }
+      catch (err) {
+        reportContent.innerHTML = `<p class="text-red-600 font-semibold">Error: ${err.message}</p>`;
         reportDiv.classList.remove('hidden');
-      } finally {
-        // Reset button
-        freeBtn.innerHTML = originalText;
+      }
+      finally {
+        // Restore the free‐button text and re-enable both buttons
+        freeBtn.innerHTML = originalFreeText;
         freeBtn.disabled = false;
         proBtn.disabled = false;
-        freeBtn.classList.remove('opacity-50');
-        proBtn.classList.remove('opacity-50');
->>>>>>> 2893cefe333f668ac6c84fb9f2976c58ab4f2830
       }
-
-      const titleLine = line.match(/^Title:\s*(.*)$/);
-      if (titleLine) {
-        html += `<h4 class="text-lg font-semibold mt-3">${titleLine[1]}</h4>`;
-        return;
-      }
-
-      const toolLine = line.match(/^Product\/Tool:\s*(.*)$/);
-      if (toolLine) {
-        html += `<p class="italic mb-2">Tool: ${toolLine[1]}</p>`;
-        return;
-      }
-
-      if (/^Action steps:/.test(line)) {
-        html += `<p class="font-semibold mt-4 mb-1">Action steps:</p>`;
-        html += '<ul class="list-disc list-inside ml-6 mb-4">';
-        inList = true;
-        return;
-      }
-
-      if (/^-\s+/.test(line) && inList) {
-        const itemText = line.replace(/^-+\s*/, '');
-        html += `<li class="mb-1">${itemText}</li>`;
-        return;
-      }
-
-      if (line.trim() === '') {
-        if (inList) {
-          html += '</ul>';
-          inList = false;
-        }
-        return;
-      }
-
-      html += `<p class="mt-2">${line}</p>`;
     });
 
-<<<<<<< HEAD
-    if (inList) {
-      html += '</ul>';
-    }
-    return html;
-  }
-
-  const form = document.getElementById('quizForm');
-  const reportDiv = document.getElementById('report');
-  const reportContent = document.getElementById('reportContent');
-  const freeBtn = document.getElementById('freeBtn');
-  const proBtn = document.getElementById('proBtn');
-  const heroProBtn = document.getElementById('heroProBtn');
-  const finalProBtn = document.getElementById('finalProBtn');
-  const floatingCTA = document.getElementById('floatingCTA');
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const originalFreeText = freeBtn.innerHTML;
-    freeBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Generating Your Audit...';
-    freeBtn.disabled = true;
-    proBtn.disabled = true;
-
-    const email = form.email.value.trim();
-    const subscribe = form.newsletter.checked;
-    const answers = {
-      businessType: form.businessType.value.trim(),
-      scale:         form.scale.value.trim(),
-      q1:            form.q1.value.trim(),
-      q2:            form.q2.value.trim(),
-      q3:            form.q3.value.trim(),
-      q4:            form.q4.value.trim(),
-      q5:            form.q5.value.trim(),
-      q6:            form.q6.value.trim(),
-      q7:            form.q7.value.trim(),
-      q8:            form.q8.value.trim(),
-      q9:            form.q9.value.trim(),
-      q10:           form.q10.value.trim()
-    };
-
-    reportDiv.classList.add('hidden');
-    reportContent.classList.remove('text-red-600');
-
-    try {
-      const resp = await fetch('https://api.aiauditpro.com/api/audit.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, answers, subscribe })
-      });
-      const json = await resp.json();
-      if (json.error) throw new Error(json.error.message || JSON.stringify(json.error));
-
-      let raw = json.choices[0].message.content || 'No audit returned.';
-      raw = raw.replace(/\*\*(.*?)\*\*/g, '$1');
-
-      const html = formatFreeAudit(raw);
-      reportContent.innerHTML = html;
-      reportDiv.classList.remove('hidden');
-      reportDiv.scrollIntoView({ behavior: 'smooth' });
-
-      if (!document.getElementById('advBtn')) {
-        const advBtn = document.createElement('button');
-        advBtn.id = 'advBtn';
-        advBtn.className =
-          'group bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 ' +
-          'text-white py-4 px-8 rounded-xl text-lg font-semibold transition-all duration-300 ' +
-          'shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center mx-auto';
-        advBtn.innerHTML = '<i class="fas fa-rocket mr-2 group-hover:translate-x-1 transition-transform"></i>Upgrade to Pro Audit - $49';
-        advBtn.addEventListener('click', getProAudit);
-        reportDiv.appendChild(advBtn);
-      }
-    }
-    catch (err) {
-      reportContent.innerHTML = `<p class="text-red-600 font-semibold">Error: ${err.message}</p>`;
-      reportDiv.classList.remove('hidden');
-    }
-    finally {
-      freeBtn.innerHTML = originalFreeText;
-      freeBtn.disabled = false;
-      proBtn.disabled = false;
-    }
-  });
-
-  async function getProAudit(e) {
-    e.preventDefault();
-    const btn = e.currentTarget;
-    const originalHTML = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Processing...';
-    btn.disabled = true;
-
-    const email = form.email.value.trim();
-    const subscribe = form.newsletter.checked;
-    const answers = {
-      businessType: form.businessType.value.trim(),
-      scale:         form.scale.value.trim(),
-      q1:            form.q1.value.trim(),
-      q2:            form.q2.value.trim(),
-      q3:            form.q3.value.trim(),
-      q4:            form.q4.value.trim(),
-      q5:            form.q5.value.trim(),
-      q6:            form.q6.value.trim(),
-      q7:            form.q7.value.trim(),
-      q8:            form.q8.value.trim(),
-      q9:            form.q9.value.trim(),
-      q10:           form.q10.value.trim()
-    };
-
-    try {
-      const resp = await fetch('https://api.aiauditpro.com/api/create-checkout-session.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, answers, subscribe })
-      });
-      const { url } = await resp.json();
-      window.location = url;
-    }
-    catch (err) {
-      alert('Error initiating payment: ' + err.message);
-      btn.innerHTML = originalHTML;
-      btn.disabled = false;
-    }
-  }
-
-  proBtn.addEventListener('click', getProAudit);
-  heroProBtn.addEventListener('click', getProAudit);
-  finalProBtn.addEventListener('click', getProAudit);
-  floatingCTA.addEventListener('click', getProAudit);
-</script>
-
-=======
-    // Pro audit function
+    // All “Pro Audit” buttons call this same handler
     async function getProAudit(e) {
       e.preventDefault();
-
-      const button = e.target;
-      const originalText = button.innerHTML;
-      button.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Processing...';
-      button.disabled = true;
+      const btn = e.currentTarget;
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Processing...';
+      btn.disabled = true;
 
       const email = form.email.value.trim();
       const subscribe = form.newsletter.checked;
       const answers = {
         businessType: form.businessType.value.trim(),
-        scale: form.scale.value.trim(),
-        q1: form.q1.value.trim(),
-        q2: form.q2.value.trim(),
-        q3: form.q3.value.trim(),
-        q4: form.q4.value.trim(),
-        q5: form.q5.value.trim(),
-        q6: form.q6.value.trim(),
-        q7: form.q7.value.trim(),
-        q8: form.q8.value.trim(),
-        q9: form.q9.value.trim(),
-        q10: form.q10.value.trim()
+        scale:         form.scale.value.trim(),
+        q1:            form.q1.value.trim(),
+        q2:            form.q2.value.trim(),
+        q3:            form.q3.value.trim(),
+        q4:            form.q4.value.trim(),
+        q5:            form.q5.value.trim(),
+        q6:            form.q6.value.trim(),
+        q7:            form.q7.value.trim(),
+        q8:            form.q8.value.trim(),
+        q9:            form.q9.value.trim(),
+        q10:           form.q10.value.trim()
       };
 
       try {
@@ -1118,24 +988,23 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, answers, subscribe })
         });
-        
         const { url } = await resp.json();
         window.location = url;
-      } catch (err) {
+      }
+      catch (err) {
         alert('Error initiating payment: ' + err.message);
-      } finally {
-        button.innerHTML = originalText;
-        button.disabled = false;
+        btn.innerHTML = originalHTML;
+        btn.disabled = false;
       }
     }
 
-    // Attach pro audit handlers
+    // Wire up every “Get Pro Audit” button to the same handler
     proBtn.addEventListener('click', getProAudit);
     heroProBtn.addEventListener('click', getProAudit);
     finalProBtn.addEventListener('click', getProAudit);
     floatingCTA.addEventListener('click', getProAudit);
 
-    // Hide floating CTA when user scrolls back up
+    // Hide the floating CTA when user scrolls back above a certain point
     let lastScrollY = window.scrollY;
     window.addEventListener('scroll', () => {
       if (window.scrollY < lastScrollY && window.scrollY < 500) {
@@ -1146,12 +1015,11 @@
       lastScrollY = window.scrollY;
     });
 
-    // Add animation to elements as they come into view
+    // Animate cards as they come into view
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
     };
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1161,7 +1029,6 @@
       });
     }, observerOptions);
 
-    // Observe benefit cards and testimonials
     document.querySelectorAll('.group').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
@@ -1169,6 +1036,5 @@
       observer.observe(el);
     });
   </script>
-
 </body>
 </html>
